@@ -1,0 +1,1961 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="De Kluis FiveM - Een spannende FiveM spelshow.">
+    <meta name="theme-color" content="#080a0b">
+
+    <title>De Kluis FiveM</title>
+
+    <style>
+
+        /* =========================================
+           BASIS
+        ========================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #07090a;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -1;
+
+            background:
+                radial-gradient(
+                    circle at 50% 0%,
+                    rgba(210, 165, 70, 0.10),
+                    transparent 40%
+                );
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button,
+        input,
+        textarea,
+        select {
+            font-family: inherit;
+        }
+
+        .container {
+            width: min(1150px, 92%);
+            margin: 0 auto;
+        }
+
+
+        /* =========================================
+           KLEUREN
+        ========================================= */
+
+        :root {
+            --black: #07090a;
+            --black2: #0d1113;
+            --black3: #14191c;
+
+            --gold: #c99b43;
+            --gold-light: #edc96f;
+            --gold-dark: #76531d;
+
+            --white: #ffffff;
+            --gray: #a5a7a6;
+            --gray-dark: #686c6c;
+
+            --border: rgba(201, 155, 67, 0.25);
+        }
+
+
+        /* =========================================
+           NAVIGATIE
+        ========================================= */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+
+            z-index: 1000;
+
+            background: rgba(5, 7, 8, 0.94);
+
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav {
+            min-height: 78px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 20px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-logo img {
+            width: 65px;
+            height: 65px;
+
+            object-fit: contain;
+
+            filter:
+                drop-shadow(0 0 10px rgba(201,155,67,0.2));
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+
+            gap: 27px;
+
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #ddd;
+
+            font-size: 13px;
+            font-weight: 700;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+
+            transition: 0.25s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold-light);
+        }
+
+        .nav-register {
+            border: 1px solid var(--gold);
+
+            padding: 11px 16px;
+
+            border-radius: 4px;
+
+            color: var(--gold-light) !important;
+        }
+
+        .nav-register:hover {
+            background: var(--gold);
+            color: #111 !important;
+        }
+
+
+        /* =========================================
+           HERO
+        ========================================= */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 120px 20px 80px;
+
+            position: relative;
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(201,155,67,0.13),
+                    transparent 42%
+                ),
+                linear-gradient(
+                    180deg,
+                    #080a0b 0%,
+                    #0b0e10 100%
+                );
+        }
+
+        .hero::before {
+            content: "";
+
+            position: absolute;
+
+            width: 700px;
+            height: 700px;
+
+            left: 50%;
+            top: 50%;
+
+            transform: translate(-50%, -50%);
+
+            border-radius: 50%;
+
+            border: 1px solid rgba(201,155,67,0.08);
+
+            box-shadow:
+                0 0 100px rgba(201,155,67,0.05);
+
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+
+            width: 100%;
+        }
+
+        .hero-logo {
+            width: min(520px, 88vw);
+
+            max-height: 400px;
+
+            object-fit: contain;
+
+            margin-bottom: 15px;
+
+            filter:
+                drop-shadow(0 20px 35px rgba(0,0,0,0.8))
+                drop-shadow(0 0 25px rgba(201,155,67,0.15));
+        }
+
+        .hero-small {
+            color: var(--gold-light);
+
+            font-size: 12px;
+            font-weight: 800;
+
+            letter-spacing: 4px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 7vw, 78px);
+
+            line-height: 0.95;
+
+            font-weight: 900;
+
+            text-transform: uppercase;
+
+            letter-spacing: -2px;
+
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: var(--gold-light);
+        }
+
+        .hero-description {
+            max-width: 690px;
+
+            margin: 0 auto;
+
+            color: #b3b5b4;
+
+            font-size: 16px;
+
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+
+            justify-content: center;
+
+            gap: 15px;
+
+            flex-wrap: wrap;
+
+            margin-top: 30px;
+        }
+
+        .button {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            min-width: 185px;
+
+            padding: 15px 25px;
+
+            border-radius: 4px;
+
+            font-size: 12px;
+
+            font-weight: 800;
+
+            letter-spacing: 1px;
+
+            text-transform: uppercase;
+
+            transition: 0.25s ease;
+
+            cursor: pointer;
+        }
+
+        .button-gold {
+            border: 1px solid var(--gold);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--gold-light),
+                    var(--gold)
+                );
+
+            color: #0a0a09;
+
+            box-shadow:
+                0 10px 25px rgba(201,155,67,0.12);
+        }
+
+        .button-gold:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 15px 35px rgba(201,155,67,0.25);
+        }
+
+        .button-outline {
+            border: 1px solid #505555;
+
+            background: transparent;
+
+            color: white;
+        }
+
+        .button-outline:hover {
+            border-color: var(--gold);
+
+            color: var(--gold-light);
+        }
+
+
+        /* =========================================
+           SECTIES
+        ========================================= */
+
+        section {
+            padding: 100px 0;
+        }
+
+        section:nth-of-type(even) {
+            background: #0c1012;
+        }
+
+        .section-header {
+            margin-bottom: 45px;
+        }
+
+        .section-label {
+            color: var(--gold-light);
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+        }
+
+        .section-header h2 {
+            font-size: clamp(32px, 5vw, 48px);
+
+            font-weight: 900;
+
+            text-transform: uppercase;
+
+            margin-top: 8px;
+        }
+
+        .section-header p {
+            max-width: 680px;
+
+            color: var(--gray);
+
+            font-size: 15px;
+
+            line-height: 1.8;
+
+            margin-top: 12px;
+        }
+
+
+        /* =========================================
+           INFO KAARTEN
+        ========================================= */
+
+        .cards {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+        .card {
+            position: relative;
+
+            padding: 32px;
+
+            min-height: 220px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #171c1f,
+                    #0b0f11
+                );
+
+            border: 1px solid var(--border);
+
+            border-radius: 6px;
+
+            overflow: hidden;
+
+            transition: 0.25s ease;
+        }
+
+        .card::before {
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 55px;
+            height: 3px;
+
+            background: var(--gold);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+
+            border-color: rgba(201,155,67,0.55);
+
+            box-shadow:
+                0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .card-number {
+            color: var(--gold);
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            letter-spacing: 2px;
+        }
+
+        .card h3 {
+            margin-top: 15px;
+            margin-bottom: 12px;
+
+            font-size: 19px;
+
+            text-transform: uppercase;
+        }
+
+        .card p {
+            color: var(--gray);
+
+            font-size: 14px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================================
+           DEELNEMERS
+        ========================================= */
+
+        .participants {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 18px;
+        }
+
+        .participant {
+            min-height: 210px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            flex-direction: column;
+
+            text-align: center;
+
+            padding: 20px;
+
+            background: #121719;
+
+            border: 1px solid var(--border);
+
+            border-radius: 6px;
+
+            transition: 0.25s ease;
+        }
+
+        .participant:hover {
+            border-color: rgba(201,155,67,0.6);
+
+            transform: translateY(-3px);
+        }
+
+        .participant-avatar {
+            width: 75px;
+            height: 75px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle at 30% 25%,
+                    #4a4e4e,
+                    #0b0d0e 65%
+                );
+
+            border: 2px solid var(--gold);
+
+            color: var(--gold-light);
+
+            font-size: 24px;
+
+            font-weight: 900;
+
+            margin-bottom: 15px;
+        }
+
+        .participant h3 {
+            font-size: 15px;
+
+            text-transform: uppercase;
+        }
+
+        .participant-status {
+            margin-top: 7px;
+
+            color: #777d7c;
+
+            font-size: 10px;
+
+            letter-spacing: 1px;
+
+            text-transform: uppercase;
+        }
+
+
+        /* =========================================
+           UITLEG
+        ========================================= */
+
+        .rules {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 20px;
+        }
+
+        .rule {
+            display: flex;
+
+            gap: 20px;
+
+            padding: 27px;
+
+            background: #111618;
+
+            border: 1px solid rgba(255,255,255,0.05);
+
+            border-left: 3px solid var(--gold);
+
+            transition: 0.25s ease;
+        }
+
+        .rule:hover {
+            background: #151a1c;
+        }
+
+        .rule-number {
+            color: var(--gold-light);
+
+            font-size: 18px;
+
+            font-weight: 900;
+        }
+
+        .rule h3 {
+            font-size: 16px;
+
+            margin-bottom: 8px;
+
+            text-transform: uppercase;
+        }
+
+        .rule p {
+            color: var(--gray);
+
+            font-size: 14px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================================
+           INSCHRIJFFORMULIER
+        ========================================= */
+
+        #inschrijven {
+            background: #0c1012;
+        }
+
+        .form-wrapper {
+            max-width: 850px;
+
+            padding: 40px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #171c1f,
+                    #0b0f10
+                );
+
+            border: 1px solid var(--border);
+
+            border-radius: 7px;
+
+            box-shadow:
+                0 20px 50px rgba(0,0,0,0.25);
+        }
+
+        .form-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 8px;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            color: #e5e5e5;
+
+            font-size: 12px;
+
+            font-weight: 700;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+
+            padding: 14px;
+
+            background: #080b0c;
+
+            color: white;
+
+            border: 1px solid #373c3d;
+
+            border-radius: 4px;
+
+            outline: none;
+
+            font-size: 14px;
+
+            transition: 0.2s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--gold);
+
+            box-shadow:
+                0 0 0 2px rgba(201,155,67,0.08);
+        }
+
+        .form-group textarea {
+            min-height: 140px;
+
+            resize: vertical;
+        }
+
+        .form-info {
+            color: #737878;
+
+            font-size: 11px;
+
+            line-height: 1.6;
+
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .submit-button {
+            border: none;
+        }
+
+
+        /* =========================================
+           CONTACT
+        ========================================= */
+
+        .contact-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+        .contact-card {
+            padding: 30px;
+
+            background: #111618;
+
+            border: 1px solid var(--border);
+
+            border-radius: 6px;
+        }
+
+        .contact-icon {
+            color: var(--gold-light);
+
+            font-size: 28px;
+
+            margin-bottom: 15px;
+        }
+
+        .contact-card h3 {
+            font-size: 17px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 10px;
+        }
+
+        .contact-card p {
+            color: var(--gray);
+
+            font-size: 14px;
+
+            line-height: 1.7;
+        }
+
+        .contact-card a {
+            color: var(--gold-light);
+        }
+
+        .contact-card a:hover {
+            text-decoration: underline;
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+            padding: 35px 20px;
+
+            text-align: center;
+
+            border-top: 1px solid var(--border);
+
+            background: #07090a;
+
+            color: #666;
+
+            font-size: 12px;
+        }
+
+        footer strong {
+            color: var(--gold-light);
+        }
+
+
+        /* =========================================
+           MOBIEL
+        ========================================= */
+
+        @media (max-width: 900px) {
+
+            .nav-links {
+                gap: 15px;
+            }
+
+            .nav-links a {
+                font-size: 11px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .participants {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 650px) {
+
+            header {
+                position: absolute;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            .nav-logo img {
+                width: 75px;
+                height: 75px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding-top: 100px;
+            }
+
+            .hero-logo {
+                width: 90vw;
+            }
+
+            .hero h1 {
+                font-size: 43px;
+            }
+
+            .hero-description {
+                font-size: 14px;
+            }
+
+            section {
+                padding: 70px 0;
+            }
+
+            .cards,
+            .participants,
+            .rules,
+            .contact-grid,
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group.full {
+                grid-column: auto;
+            }
+
+            .form-wrapper {
+                padding: 25px;
+            }
+
+            .section-header h2 {
+                font-size: 34px;
+            }
+
+            .button {
+                width: 100%;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     NAVIGATIE
+========================================= -->
+
+<header>
+
+    <div class="container">
+
+        <nav>
+
+            <a href="#home" class="nav-logo">
+
+                <img
+                    src="logo.png"
+                    alt="De Kluis FiveM logo"
+                >
+
+            </a>
+
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="#home">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#deelnemers">
+                        Deelnemers
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#uitleg">
+                        Uitleg
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#contact">
+                        Contact
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        href="#inschrijven"
+                        class="nav-register"
+                    >
+                        Inschrijven
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================
+     HOME
+========================================= -->
+
+<section
+    class="hero"
+    id="home"
+>
+
+    <div class="hero-content">
+
+        <img
+            src="logo.png"
+            alt="De Kluis FiveM"
+            class="hero-logo"
+        >
+
+
+        <div class="hero-small">
+
+            FIVEM • SPELSHOW • COMPETITIE
+
+        </div>
+
+
+        <h1>
+
+            Wie kraakt de
+
+            <span>
+                kluis?
+            </span>
+
+        </h1>
+
+
+        <p class="hero-description">
+
+            Welkom bij De Kluis FiveM.
+
+            Een spannende spelshow waarin
+            deelnemers opdrachten uitvoeren,
+            geld verdienen en uiteindelijk
+            proberen de kluis te kraken.
+
+            Alleen de slimste en sterkste
+            deelnemers maken kans op de overwinning.
+
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <a
+                href="#inschrijven"
+                class="button button-gold"
+            >
+                Schrijf je in
+            </a>
+
+
+            <a
+                href="#uitleg"
+                class="button button-outline"
+            >
+                Bekijk de uitleg
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     ALGEMENE INFORMATIE
+========================================= -->
+
+<section>
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <div class="section-label">
+                Welkom bij het spel
+            </div>
+
+            <h2>
+                De Kluis
+            </h2>
+
+            <p>
+
+                Alles draait om samenwerking,
+                strategie, lef en natuurlijk
+                de kluis.
+
+            </p>
+
+        </div>
+
+
+        <div class="cards">
+
+
+            <div class="card">
+
+                <div class="card-number">
+                    01 — OPDRACHTEN
+                </div>
+
+                <h3>
+                    Speel de opdrachten
+                </h3>
+
+                <p>
+
+                    De deelnemers krijgen verschillende
+                    opdrachten. Door deze succesvol
+                    te voltooien kan er geld worden
+                    verdiend voor de kluis.
+
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-number">
+                    02 — STRATEGIE
+                </div>
+
+                <h3>
+                    Maak keuzes
+                </h3>
+
+                <p>
+
+                    Vertrouw je medespelers,
+                    denk goed na over je keuzes
+                    en probeer de andere deelnemers
+                    voor te blijven.
+
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-number">
+                    03 — FINALE
+                </div>
+
+                <h3>
+                    Kraak de kluis
+                </h3>
+
+                <p>
+
+                    Uiteindelijk moeten de finalisten
+                    proberen de kluis te kraken
+                    en de uiteindelijke prijs
+                    veilig te stellen.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     DEELNEMERS
+========================================= -->
+
+<section id="deelnemers">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <div class="section-label">
+                De kandidaten
+            </div>
+
+            <h2>
+                Deelnemers
+            </h2>
+
+            <p>
+
+                Hier komen alle deelnemers
+                van het huidige seizoen te staan.
+
+                Je kunt deze later vervangen
+                door de echte deelnemers.
+
+            </p>
+
+        </div>
+
+
+        <div class="participants">
+
+
+            <div class="participant">
+
+                <div class="participant-avatar">
+                    ?
+                </div>
+
+                <h3>
+                    Deelnemer 01
+                </h3>
+
+                <div class="participant-status">
+                    Binnenkort bekend
+                </div>
+
+            </div>
+
+
+            <div class="participant">
+
+                <div class="participant-avatar">
+                    ?
+                </div>
+
+                <h3>
+                    Deelnemer 02
+                </h3>
+
+                <div class="participant-status">
+                    Binnenkort bekend
+                </div>
+
+            </div>
+
+
+            <div class="participant">
+
+                <div class="participant-avatar">
+                    ?
+                </div>
+
+                <h3>
+                    Deelnemer 03
+                </h3>
+
+                <div class="participant-status">
+                    Binnenkort bekend
+                </div>
+
+            </div>
+
+
+            <div class="participant">
+
+                <div class="participant-avatar">
+                    ?
+                </div>
+
+                <h3>
+                    Deelnemer 04
+                </h3>
+
+                <div class="participant-status">
+                    Binnenkort bekend
+                </div>
+
+            </div>
+
+
+            <div class="participant">
+
+                <div class="participant-avatar">
+                    ?
+                </div>
+
+                <h3>
+                    Deelnemer 05
+                </h3>
+
+                <div class="participant-status">
+                    Binnenkort bekend
+                </div>
+
+            </div>
+
+
+            <div class="participant">
+
+                <div class="participant-avatar">
+                    ?
+                </div>
+
+                <h3>
+                    Deelnemer 06
+                </h3>
+
+                <div class="participant-status">
+                    Binnenkort bekend
+                </div>
+
+            </div>
+
+
+            <div class="participant">
+
+                <div class="participant-avatar">
+                    ?
+                </div>
+
+                <h3>
+                    Deelnemer 07
+                </h3>
+
+                <div class="participant-status">
+                    Binnenkort bekend
+                </div>
+
+            </div>
+
+
+            <div class="participant">
+
+                <div class="participant-avatar">
+                    ?
+                </div>
+
+                <h3>
+                    Deelnemer 08
+                </h3>
+
+                <div class="participant-status">
+                    Binnenkort bekend
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     UITLEG
+========================================= -->
+
+<section id="uitleg">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <div class="section-label">
+                Spelregels
+            </div>
+
+            <h2>
+                Hoe werkt De Kluis?
+            </h2>
+
+            <p>
+
+                Hieronder staat de basisuitleg
+                van het spel. Je kunt deze teksten
+                later aanpassen aan jullie eigen
+                FiveM-server.
+
+            </p>
+
+        </div>
+
+
+        <div class="rules">
+
+
+            <div class="rule">
+
+                <div class="rule-number">
+                    01
+                </div>
+
+                <div>
+
+                    <h3>
+                        De opdrachten
+                    </h3>
+
+                    <p>
+
+                        De deelnemers krijgen
+                        verschillende opdrachten.
+
+                        Door deze opdrachten succesvol
+                        uit te voeren kan er geld
+                        worden verdiend.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="rule">
+
+                <div class="rule-number">
+                    02
+                </div>
+
+                <div>
+
+                    <h3>
+                        De kluis
+                    </h3>
+
+                    <p>
+
+                        Het geld dat tijdens de
+                        opdrachten wordt verdiend,
+                        komt terecht in de gezamenlijke
+                        kluis.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="rule">
+
+                <div class="rule-number">
+                    03
+                </div>
+
+                <div>
+
+                    <h3>
+                        Samenwerken
+                    </h3>
+
+                    <p>
+
+                        Samenwerken is belangrijk,
+                        maar iedere deelnemer heeft
+                        uiteindelijk zijn eigen strategie.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="rule">
+
+                <div class="rule-number">
+                    04
+                </div>
+
+                <div>
+
+                    <h3>
+                        Strategie
+                    </h3>
+
+                    <p>
+
+                        Denk goed na over iedere keuze.
+                        Vertrouwen, tactiek en timing
+                        kunnen het verschil maken.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="rule">
+
+                <div class="rule-number">
+                    05
+                </div>
+
+                <div>
+
+                    <h3>
+                        Eliminatie
+                    </h3>
+
+                    <p>
+
+                        Tijdens het spel kunnen deelnemers
+                        worden geëlimineerd.
+
+                        Uiteindelijk blijven alleen
+                        de finalisten over.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="rule">
+
+                <div class="rule-number">
+                    06
+                </div>
+
+                <div>
+
+                    <h3>
+                        De finale
+                    </h3>
+
+                    <p>
+
+                        In de finale krijgen de overgebleven
+                        deelnemers de kans om de kluis
+                        te kraken en de hoofdprijs
+                        te winnen.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     INSCHRIJVEN
+========================================= -->
+
+<section id="inschrijven">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <div class="section-label">
+                Doe mee
+            </div>
+
+            <h2>
+                Inschrijven
+            </h2>
+
+            <p>
+
+                Denk jij dat je geschikt bent
+                voor De Kluis?
+
+                Vul dan het formulier hieronder in.
+
+            </p>
+
+        </div>
+
+
+        <div class="form-wrapper">
+
+
+            <!--
+                =================================
+                FORMSPREE
+                =================================
+
+                BELANGRIJK:
+
+                Vervang:
+
+                JOUW-FORMSPREE-ID
+
+                door de code die je van Formspree krijgt.
+
+                Bijvoorbeeld:
+
+                https://formspree.io/f/abc123xyz
+
+            -->
+
+
+            <form
+                action="https://formspree.io/f/JOUW-FORMSPREE-ID"
+                method="POST"
+            >
+
+
+                <!-- Onderwerp van de e-mail -->
+
+                <input
+                    type="hidden"
+                    name="subject"
+                    value="Nieuwe inschrijving - De Kluis FiveM"
+                >
+
+
+                <div class="form-grid">
+
+
+                    <!-- FIVE M NAAM -->
+
+                    <div class="form-group">
+
+                        <label for="naam">
+                            FiveM-naam *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="naam"
+                            name="FiveM-naam"
+                            placeholder="Bijvoorbeeld: Vinnie123"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- DISCORD -->
+
+                    <div class="form-group">
+
+                        <label for="discord">
+                            Discord-naam *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="discord"
+                            name="Discord-naam"
+                            placeholder="Bijvoorbeeld: vinnie123"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- EMAIL -->
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            E-mailadres *
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="E-mailadres"
+                            placeholder="jouw@email.nl"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- LEEFTIJD -->
+
+                    <div class="form-group">
+
+                        <label for="leeftijd">
+                            Leeftijd *
+                        </label>
+
+                        <input
+                            type="number"
+                            id="leeftijd"
+                            name="Leeftijd"
+                            min="13"
+                            max="99"
+                            placeholder="18"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- FIVE M ERVARING -->
+
+                    <div class="form-group full">
+
+                        <label for="ervaring">
+                            FiveM-ervaring
+                        </label>
+
+                        <select
+                            id="ervaring"
+                            name="FiveM-ervaring"
+                        >
+
+                            <option value="Beginner">
+                                Beginner
+                            </option>
+
+                            <option value="Gemiddeld">
+                                Gemiddeld
+                            </option>
+
+                            <option value="Ervaren">
+                                Ervaren
+                            </option>
+
+                            <option value="Zeer ervaren">
+                                Zeer ervaren
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- MOTIVATIE -->
+
+                    <div class="form-group full">
+
+                        <label for="motivatie">
+                            Waarom wil je meedoen? *
+                        </label>
+
+                        <textarea
+                            id="motivatie"
+                            name="Motivatie"
+                            placeholder="Vertel ons waarom jij mee wilt doen aan De Kluis..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                    <!-- EXTRA INFORMATIE -->
+
+                    <div class="form-group full">
+
+                        <label for="extra">
+                            Extra informatie
+                        </label>
+
+                        <textarea
+                            id="extra"
+                            name="Extra informatie"
+                            placeholder="Heb je nog iets dat wij moeten weten?"
+                        ></textarea>
+
+                    </div>
+
+
+                </div>
+
+
+                <p class="form-info">
+
+                    Door het formulier te versturen geef je aan
+                    dat de informatie die je hebt ingevuld correct is
+                    en dat je akkoord gaat met de spelregels
+                    van De Kluis.
+
+                </p>
+
+
+                <button
+                    type="submit"
+                    class="button button-gold submit-button"
+                >
+
+                    Aanmelding versturen
+
+                </button>
+
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     CONTACT
+========================================= -->
+
+<section id="contact">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <div class="section-label">
+                Contact
+            </div>
+
+            <h2>
+                Contact ons
+            </h2>
+
+            <p>
+
+                Heb je een vraag over De Kluis?
+                Neem dan contact op met het team.
+
+            </p>
+
+        </div>
+
+
+        <div class="contact-grid">
+
+
+            <!-- DISCORD -->
+
+            <div class="contact-card">
+
+                <div class="contact-icon">
+                    💬
+                </div>
+
+                <h3>
+                    Discord
+                </h3>
+
+                <p>
+
+                    Kom gezellig bij onze Discord
+                    voor nieuws, updates en vragen.
+
+                    <br><br>
+
+                    <a href="#">
+                        Discord server
+                    </a>
+
+                </p>
+
+            </div>
+
+
+            <!-- EMAIL -->
+
+            <div class="contact-card">
+
+                <div class="contact-icon">
+                    ✉
+                </div>
+
+                <h3>
+                    E-mail
+                </h3>
+
+                <p>
+
+                    Heb je een vraag?
+
+                    <br><br>
+
+                    <a href="mailto:vinnieroodenburg@outlook.com">
+
+                        vinnieroodenburg@outlook.com
+
+                    </a>
+
+                </p>
+
+            </div>
+
+
+            <!-- FIVEM -->
+
+            <div class="contact-card">
+
+                <div class="contact-icon">
+                    🎮
+                </div>
+
+                <h3>
+                    FiveM
+                </h3>
+
+                <p>
+
+                    Speel mee met De Kluis
+                    op onze FiveM-server.
+
+                    <br><br>
+
+                    Serverinformatie
+                    wordt binnenkort toegevoegd.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer>
+
+    © 2026
+
+    <strong>
+        De Kluis FiveM
+    </strong>
+
+    — Alle rechten voorbehouden.
+
+</footer>
+
+
+
+</body>
+</html>
