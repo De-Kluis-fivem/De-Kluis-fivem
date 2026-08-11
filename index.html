@@ -554,11 +554,30 @@
            DEELNEMERS
         ========================================= */
 
+        .team-title {
+            margin-top: 45px;
+            margin-bottom: 20px;
+
+            color: var(--gold-light);
+
+            font-size: 18px;
+
+            font-weight: 900;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            border-left: 3px solid var(--gold);
+
+            padding-left: 12px;
+        }
+
         .participants {
             display: grid;
 
             grid-template-columns:
-                repeat(4, 1fr);
+                repeat(3, 1fr);
 
             gap: 18px;
         }
@@ -671,13 +690,6 @@
             border: 1px solid var(--border);
 
             border-radius: 6px;
-
-            transition: 0.25s ease;
-        }
-
-        .rule:hover {
-            border-color: rgba(201,155,67,0.45);
-            transform: translateY(-3px);
         }
 
         .rule-number {
@@ -831,320 +843,126 @@
         }
 
         /* =========================================
-           INSCHRIJVEN
+           INSCHRIJVINGEN GESLOTEN
         ========================================= */
 
         #inschrijven {
             background: #0c1012;
         }
 
-        .registration-grid {
-            display: grid;
+        .closed-registration {
+            position: relative;
 
-            grid-template-columns:
-                repeat(2, 1fr);
+            padding: 75px 35px;
 
-            gap: 25px;
-        }
-
-        .registration-card {
-            padding: 35px;
+            text-align: center;
 
             background:
+                radial-gradient(
+                    circle at center,
+                    rgba(201,155,67,0.10),
+                    transparent 60%
+                ),
                 linear-gradient(
                     145deg,
                     #171c1f,
-                    #0b0f10
+                    #0b0f11
                 );
 
             border: 1px solid var(--border);
 
-            border-radius: 7px;
+            border-radius: 8px;
 
             box-shadow:
-                0 20px 50px rgba(0,0,0,0.25);
+                0 25px 60px rgba(0,0,0,0.35);
+
+            overflow: hidden;
         }
 
-        .registration-card h3 {
-            font-size: 24px;
+        .closed-registration::before {
+            content: "";
 
-            text-transform: uppercase;
-        }
+            position: absolute;
 
-        .registration-card > p {
-            color: var(--gray);
+            top: 0;
+            left: 0;
 
-            font-size: 13px;
-
-            line-height: 1.7;
-
-            margin-top: 10px;
-
-            margin-bottom: 25px;
-        }
-
-        .form-grid {
-            display: grid;
-
-            grid-template-columns:
-                repeat(2, 1fr);
-
-            gap: 20px;
-        }
-
-        .form-group {
-            display: flex;
-
-            flex-direction: column;
-
-            gap: 8px;
-        }
-
-        .form-group.full {
-            grid-column: 1 / -1;
-        }
-
-        .form-group label {
-            color: #e5e5e5;
-
-            font-size: 12px;
-
-            font-weight: 700;
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
             width: 100%;
-
-            padding: 14px;
-
-            background: #080b0c;
-
-            color: white;
-
-            border: 1px solid #373c3d;
-
-            border-radius: 4px;
-
-            outline: none;
-
-            font-size: 14px;
-
-            transition: 0.2s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            border-color: var(--gold);
-
-            box-shadow:
-                0 0 0 2px rgba(201,155,67,0.08);
-        }
-
-        .form-group textarea {
-            min-height: 130px;
-
-            resize: vertical;
-        }
-
-        .form-info {
-            color: #737878;
-
-            font-size: 11px;
-
-            line-height: 1.6;
-
-            margin-top: 20px;
-
-            margin-bottom: 20px;
-        }
-
-        .submit-button {
-            border: none;
-        }
-
-        /* =========================================
-           NIEUWE SUCCESMELDING
-        ========================================= */
-
-        .form-message {
-            display: none;
-
-            margin-top: 25px;
-
-            padding: 25px;
-
-            border: 1px solid rgba(201,155,67,0.45);
-
-            border-left: 4px solid var(--gold);
-
-            border-radius: 6px;
+            height: 3px;
 
             background:
                 linear-gradient(
-                    145deg,
-                    rgba(201,155,67,0.12),
-                    rgba(10,13,14,0.95)
+                    90deg,
+                    transparent,
+                    var(--gold),
+                    transparent
                 );
-
-            box-shadow:
-                0 15px 40px rgba(0,0,0,0.3);
         }
 
-        .form-message.show {
-            display: block;
+        .closed-icon {
+            width: 85px;
+            height: 85px;
 
-            animation:
-                messageIn 0.55s ease forwards;
-        }
-
-        .form-message-icon {
-            width: 45px;
-            height: 45px;
+            margin: 0 auto 25px;
 
             display: flex;
 
             align-items: center;
             justify-content: center;
 
-            margin-bottom: 15px;
-
             border-radius: 50%;
 
-            background: rgba(201,155,67,0.15);
+            border: 2px solid var(--gold);
 
-            border: 1px solid var(--gold);
+            background: rgba(201,155,67,0.06);
 
             color: var(--gold-light);
 
-            font-size: 22px;
+            font-size: 36px;
 
-            animation:
-                checkPop 0.5s ease 0.15s both;
+            box-shadow:
+                0 0 35px rgba(201,155,67,0.10);
         }
 
-        .form-message h4 {
+        .closed-registration h3 {
             color: var(--gold-light);
 
-            font-size: 20px;
+            font-size: clamp(30px, 5vw, 52px);
+
+            font-weight: 900;
+
+            line-height: 1.1;
 
             text-transform: uppercase;
+
+            margin-bottom: 18px;
+        }
+
+        .closed-registration p {
+            color: var(--gray);
+
+            font-size: 16px;
+
+            line-height: 1.8;
+        }
+
+        .closed-registration .closed-subtitle {
+            color: #ffffff;
+
+            font-size: 18px;
+
+            font-weight: 700;
 
             margin-bottom: 8px;
         }
 
-        .form-message p {
-            color: var(--gray);
+        .closed-line {
+            width: 80px;
+            height: 1px;
 
-            font-size: 14px;
-
-            line-height: 1.7;
-        }
-
-        .form-message.error {
-            border-color: rgba(190,70,70,0.5);
-            border-left-color: #d35b5b;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(190,70,70,0.10),
-                    rgba(10,13,14,0.95)
-                );
-        }
-
-        .form-message.error .form-message-icon {
-            border-color: #d35b5b;
-            color: #ff8585;
-            background: rgba(190,70,70,0.12);
-        }
-
-        .form-message.error h4 {
-            color: #ff8585;
-        }
-
-        @keyframes messageIn {
-            0% {
-                opacity: 0;
-                transform: translateY(20px) scale(0.97);
-            }
-
-            100% {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-
-        @keyframes checkPop {
-            0% {
-                opacity: 0;
-                transform: scale(0.4) rotate(-20deg);
-            }
-
-            70% {
-                transform: scale(1.12) rotate(3deg);
-            }
-
-            100% {
-                opacity: 1;
-                transform: scale(1) rotate(0);
-            }
-        }
-
-        .form-loading {
-            display: none;
-
-            align-items: center;
-            justify-content: center;
-
-            gap: 10px;
-
-            margin-top: 15px;
-
-            color: var(--gold-light);
-
-            font-size: 12px;
-
-            text-transform: uppercase;
-
-            letter-spacing: 1px;
-        }
-
-        .form-loading.show {
-            display: flex;
-        }
-
-        .loading-dot {
-            width: 7px;
-            height: 7px;
-
-            border-radius: 50%;
+            margin: 25px auto;
 
             background: var(--gold);
-
-            animation: loadingPulse 1s infinite ease-in-out;
-        }
-
-        .loading-dot:nth-child(2) {
-            animation-delay: 0.15s;
-        }
-
-        .loading-dot:nth-child(3) {
-            animation-delay: 0.3s;
-        }
-
-        @keyframes loadingPulse {
-            0%, 80%, 100% {
-                opacity: 0.25;
-                transform: scale(0.7);
-            }
-
-            40% {
-                opacity: 1;
-                transform: scale(1);
-            }
         }
 
         /* =========================================
@@ -1338,13 +1156,8 @@
             .rules,
             .servers-grid,
             .registration-grid,
-            .contact-grid,
-            .form-grid {
+            .contact-grid {
                 grid-template-columns: 1fr;
-            }
-
-            .form-group.full {
-                grid-column: auto;
             }
 
             .season-grid {
@@ -1357,6 +1170,10 @@
 
             .button {
                 width: 100%;
+            }
+
+            .closed-registration {
+                padding: 55px 20px;
             }
         }
 
@@ -1379,10 +1196,6 @@
                 font-size: 34px;
             }
 
-            .registration-card {
-                padding: 25px;
-            }
-
             .season-grid,
             .footer-grid {
                 grid-template-columns: 1fr;
@@ -1391,6 +1204,10 @@
             .rule {
                 grid-template-columns: 1fr;
                 gap: 10px;
+            }
+
+            .closed-registration h3 {
+                font-size: 30px;
             }
         }
     </style>
@@ -1403,37 +1220,71 @@
     ========================================= -->
 
     <header>
+
         <div class="container">
+
             <nav>
 
                 <a href="#home" class="nav-logo">
-                    <img src="logo.png" alt="De Kluis FiveM logo">
+
+                    <img
+                        src="logo.png"
+                        alt="De Kluis FiveM logo"
+                    >
+
                 </a>
 
                 <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#seizoen">Seizoen</a></li>
-                    <li><a href="#deelnemers">Deelnemers</a></li>
-                    <li><a href="#uitleg">Uitleg</a></li>
-                    <li><a href="#servers">Servers</a></li>
-                    <li><a href="#contact">Contact</a></li>
 
                     <li>
-                        <a href="#inschrijven" class="nav-register">
+                        <a href="#home">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="#seizoen">Seizoen</a>
+                    </li>
+
+                    <li>
+                        <a href="#deelnemers">Deelnemers</a>
+                    </li>
+
+                    <li>
+                        <a href="#uitleg">Uitleg</a>
+                    </li>
+
+                    <li>
+                        <a href="#servers">Servers</a>
+                    </li>
+
+                    <li>
+                        <a href="#contact">Contact</a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="#inschrijven"
+                            class="nav-register"
+                        >
                             Inschrijven
                         </a>
                     </li>
+
                 </ul>
 
             </nav>
+
         </div>
+
     </header>
 
     <!-- =========================================
          HOME
     ========================================= -->
 
-    <section class="hero" id="home">
+    <section
+        class="hero"
+        id="home"
+    >
 
         <div class="hero-content">
 
@@ -1453,6 +1304,7 @@
             </h1>
 
             <p class="hero-description">
+
                 Welkom bij De Kluis FiveM.
 
                 Een spannende spelshow waarin
@@ -1462,15 +1314,22 @@
 
                 Alleen de slimste en sterkste
                 deelnemers maken kans op de overwinning.
+
             </p>
 
             <div class="hero-buttons">
 
-                <a href="#inschrijven" class="button button-gold">
-                    Schrijf je in
+                <a
+                    href="#inschrijven"
+                    class="button button-gold"
+                >
+                    Inschrijvingen
                 </a>
 
-                <a href="#uitleg" class="button button-outline">
+                <a
+                    href="#uitleg"
+                    class="button button-outline"
+                >
                     Bekijk de uitleg
                 </a>
 
@@ -1509,6 +1368,7 @@
             <div class="cards">
 
                 <div class="card">
+
                     <div class="card-number">
                         01 — OPDRACHTEN
                     </div>
@@ -1523,9 +1383,11 @@
                         te voltooien kan er geld worden
                         verdiend voor de kluis.
                     </p>
+
                 </div>
 
                 <div class="card">
+
                     <div class="card-number">
                         02 — STRATEGIE
                     </div>
@@ -1540,9 +1402,11 @@
                         en probeer de andere deelnemers
                         voor te blijven.
                     </p>
+
                 </div>
 
                 <div class="card">
+
                     <div class="card-number">
                         03 — FINALE
                     </div>
@@ -1557,6 +1421,7 @@
                         en zoveel mogelijk waarde veilig
                         te stellen.
                     </p>
+
                 </div>
 
             </div>
@@ -1596,14 +1461,8 @@
             <div class="season-grid">
 
                 <div class="season-card">
-                    <div class="season-number">
-                        WEEK 01
-                    </div>
-
-                    <h3>
-                        Eerste spel
-                    </h3>
-
+                    <div class="season-number">WEEK 01</div>
+                    <h3>Eerste spel</h3>
                     <p>
                         De eerste kans om buit te
                         verzamelen en een voorsprong
@@ -1612,14 +1471,8 @@
                 </div>
 
                 <div class="season-card">
-                    <div class="season-number">
-                        WEEK 02
-                    </div>
-
-                    <h3>
-                        Tweede spel
-                    </h3>
-
+                    <div class="season-number">WEEK 02</div>
+                    <h3>Tweede spel</h3>
                     <p>
                         Nieuwe uitdagingen, nieuwe
                         risico's en nieuwe kansen
@@ -1628,14 +1481,8 @@
                 </div>
 
                 <div class="season-card">
-                    <div class="season-number">
-                        WEEK 03
-                    </div>
-
-                    <h3>
-                        Derde spel
-                    </h3>
-
+                    <div class="season-number">WEEK 03</div>
+                    <h3>Derde spel</h3>
                     <p>
                         De strijd wordt spannender
                         en iedere buit kan belangrijk
@@ -1644,14 +1491,8 @@
                 </div>
 
                 <div class="season-card">
-                    <div class="season-number">
-                        WEEK 04
-                    </div>
-
-                    <h3>
-                        Laatste spel
-                    </h3>
-
+                    <div class="season-number">WEEK 04</div>
+                    <h3>Laatste spel</h3>
                     <p>
                         De laatste kans om de totale
                         buit te verhogen voordat de
@@ -1719,6 +1560,10 @@
 
             </div>
 
+            <div class="team-title">
+                Team 1
+            </div>
+
             <div class="participants">
 
                 <div class="participant">
@@ -1739,6 +1584,14 @@
                     <div class="participant-status">Binnenkort bekend</div>
                 </div>
 
+            </div>
+
+            <div class="team-title">
+                Team 2
+            </div>
+
+            <div class="participants">
+
                 <div class="participant">
                     <div class="participant-avatar">?</div>
                     <h3>Deelnemer 04</h3>
@@ -1757,6 +1610,14 @@
                     <div class="participant-status">Binnenkort bekend</div>
                 </div>
 
+            </div>
+
+            <div class="team-title">
+                Team 3
+            </div>
+
+            <div class="participants">
+
                 <div class="participant">
                     <div class="participant-avatar">?</div>
                     <h3>Deelnemer 07</h3>
@@ -1774,6 +1635,14 @@
                     <h3>Deelnemer 09</h3>
                     <div class="participant-status">Binnenkort bekend</div>
                 </div>
+
+            </div>
+
+            <div class="team-title">
+                Team 4
+            </div>
+
+            <div class="participants">
 
                 <div class="participant">
                     <div class="participant-avatar">?</div>
@@ -1831,68 +1700,50 @@
 
                 <div class="rule">
                     <div class="rule-number">01</div>
-
                     <div>
                         <h3>Het doel</h3>
-
                         <p>
                             Verzamel zoveel mogelijk
                             waardevolle buit en zorg ervoor
                             dat je deze veilig buiten het
                             beveiligde terrein krijgt.
-
-                            Alleen buit die daadwerkelijk
-                            veilig is gesteld telt mee.
                         </p>
                     </div>
                 </div>
 
                 <div class="rule">
                     <div class="rule-number">02</div>
-
                     <div>
                         <h3>Het beveiligde terrein</h3>
-
                         <p>
                             De deelnemers bevinden zich
                             op een zwaar beveiligd terrein.
                             Op verschillende plekken zijn
                             waardevolle spullen verborgen.
-
-                            De deelnemers moeten het terrein
-                            verkennen zonder gepakt te worden.
                         </p>
                     </div>
                 </div>
 
                 <div class="rule">
                     <div class="rule-number">03</div>
-
                     <div>
                         <h3>De kluizen</h3>
-
                         <p>
                             Op het terrein bevinden zich
-                            meerdere kluizen.
-
-                            Niet iedere kluis bevat dezelfde
-                            hoeveelheid waardevolle spullen.
-                            Sommige kluizen zijn daarom
-                            meer risico waard dan andere.
+                            meerdere kluizen. Niet iedere
+                            kluis bevat dezelfde hoeveelheid
+                            waardevolle spullen.
                         </p>
                     </div>
                 </div>
 
                 <div class="rule">
                     <div class="rule-number">04</div>
-
                     <div>
                         <h3>De goudstaven</h3>
-
                         <p>
                             Goudstaven zijn één van de
                             belangrijkste vormen van buit.
-
                             Iedere goudstaaf die veilig
                             buiten het terrein wordt gebracht
                             draagt bij aan de totale buit.
@@ -1902,280 +1753,209 @@
 
                 <div class="rule">
                     <div class="rule-number">05</div>
-
                     <div>
                         <h3>De diamant</h3>
-
                         <p>
                             Naast het goud is er een bijzonder
-                            waardevolle diamant.
-
-                            De diamant bevindt zich op een
-                            extra beveiligde locatie en brengt
-                            daardoor een groter risico met zich mee.
+                            waardevolle diamant. De diamant
+                            bevindt zich op een extra beveiligde
+                            locatie.
                         </p>
                     </div>
                 </div>
 
                 <div class="rule">
                     <div class="rule-number">06</div>
-
                     <div>
                         <h3>Het extra wapen</h3>
-
                         <p>
                             Op het terrein kunnen de criminelen
-                            één extra wapen vinden.
-
-                            Het wapen is verborgen en moet
-                            tijdens het spel worden gevonden.
-
-                            De criminelen zullen zelf moeten
-                            beslissen wanneer en hoe ze het
-                            extra wapen inzetten.
+                            één extra wapen vinden. Het wapen
+                            is verborgen en moet tijdens het
+                            spel worden gevonden.
                         </p>
                     </div>
                 </div>
 
                 <div class="rule">
                     <div class="rule-number">07</div>
-
                     <div>
                         <h3>De radio</h3>
-
                         <p>
                             Er is ook een speciale radio
                             verborgen op het terrein.
-
                             Wanneer de criminelen deze radio
                             vinden, kunnen ze proberen de
                             communicatie van de bewakers
                             af te luisteren.
-
-                            Hierdoor kunnen ze mogelijk
-                            ontdekken waar de bewakers zich
-                            bevinden.
                         </p>
                     </div>
                 </div>
 
                 <div class="rule">
                     <div class="rule-number">08</div>
-
                     <div>
                         <h3>De bewakers</h3>
-
                         <p>
                             Het terrein wordt bewaakt door
-                            drie bewakers.
-
-                            De hoofd-bewaker is Shadow.
-                            Daarnaast zijn er nog twee andere
-                            bewakers die het terrein bewaken.
-
-                            De bewakers patrouilleren over
-                            het terrein en proberen de
-                            criminelen te vinden.
+                            drie bewakers. De hoofd-bewaker
+                            is Shadow. Daarnaast zijn er nog
+                            twee andere bewakers.
                         </p>
                     </div>
                 </div>
 
                 <div class="rule">
                     <div class="rule-number">09</div>
-
                     <div>
                         <h3>De bewakers ontwijken</h3>
-
                         <p>
                             De criminelen moeten goed opletten
                             waar de bewakers zich bevinden.
-
-                            Word je gezien, dan kan een
-                            bewaker achter je aan komen.
-
-                            Gebruik het terrein, werk samen
-                            en denk goed na over je route.
+                            Word je gezien, dan kan een bewaker
+                            achter je aan komen.
                         </p>
                     </div>
                 </div>
 
                 <div class="rule">
                     <div class="rule-number">10</div>
-
                     <div>
                         <h3>Levens</h3>
-
                         <p>
                             Tijdens het spel hebben de
                             deelnemers een beperkt aantal
-                            levens.
-
-                            Wanneer een deelnemer wordt
-                            uitgeschakeld of volgens de
-                            spelregels wordt geraakt, kan
-                            dit gevolgen hebben voor zijn
-                            resterende levens.
-
-                            Deelnemers moeten daarom goed
-                            nadenken over het risico dat ze
-                            nemen.
+                            levens. Deelnemers moeten daarom
+                            goed nadenken over het risico dat
+                            ze nemen.
                         </p>
                     </div>
                 </div>
 
                 <div class="rule">
                     <div class="rule-number">11</div>
-
                     <div>
                         <h3>Samenwerken</h3>
-
                         <p>
                             Deelnemers kunnen samenwerken
                             om de kraak tot een succes te
                             maken.
-
-                            Eén deelnemer kan bijvoorbeeld
-                            een kluis openen terwijl een
-                            andere deelnemer de omgeving
-                            in de gaten houdt.
                         </p>
                     </div>
                 </div>
 
                 <div class="rule">
                     <div class="rule-number">12</div>
-
                     <div>
                         <h3>Het risico</h3>
-
                         <p>
                             Hoe meer buit je probeert te
                             verzamelen, hoe langer je mogelijk
                             op het terrein moet blijven.
-
-                            Meer buit betekent daardoor
-                            vaak ook meer risico.
                         </p>
                     </div>
                 </div>
 
                 <div class="rule">
                     <div class="rule-number">13</div>
-
                     <div>
                         <h3>De tijd</h3>
-
                         <p>
                             Iedere spelronde duurt maximaal
-                            anderhalf uur.
-
-                            De deelnemers moeten binnen
-                            deze tijd zoveel mogelijk buit
-                            verzamelen en veilig naar buiten
-                            brengen.
-
-                            Wanneer de tijd voorbij is,
-                            stopt het spel.
+                            anderhalf uur. Wanneer de tijd
+                            voorbij is, stopt het spel.
                         </p>
                     </div>
                 </div>
 
                 <div class="rule">
                     <div class="rule-number">14</div>
-
                     <div>
                         <h3>De ontsnapping</h3>
-
                         <p>
-                            Het verzamelen van de buit is
-                            slechts één deel van het spel.
-
-                            Uiteindelijk moet de buit ook
-                            daadwerkelijk veilig buiten het
-                            beveiligde terrein worden gebracht.
-
-                            Alleen veiliggestelde buit telt mee.
+                            De buit moet daadwerkelijk veilig
+                            buiten het beveiligde terrein
+                            worden gebracht. Alleen
+                            veiliggestelde buit telt mee.
                         </p>
                     </div>
                 </div>
 
                 <div class="rule">
                     <div class="rule-number">15</div>
-
                     <div>
                         <h3>De eindbuit</h3>
-
                         <p>
                             Na afloop van ieder spel wordt
                             bekeken hoeveel waarde de
-                            deelnemers daadwerkelijk
-                            hebben veiliggesteld.
-
-                            Goudstaven, de diamant en andere
-                            waardevolle voorwerpen worden
-                            meegenomen in de berekening.
+                            deelnemers daadwerkelijk hebben
+                            veiliggesteld.
                         </p>
                     </div>
                 </div>
 
                 <div class="rule">
                     <div class="rule-number">16</div>
-
                     <div>
                         <h3>Het seizoen</h3>
-
                         <p>
                             Eén seizoen duurt vier weken.
-
                             Iedere week wordt er één spel
-                            gespeeld.
-
-                            De buit van alle vier de spellen
-                            wordt uiteindelijk bij elkaar
-                            opgeteld.
+                            gespeeld. De buit van alle vier
+                            de spellen wordt uiteindelijk
+                            bij elkaar opgeteld.
                         </p>
                     </div>
                 </div>
 
                 <div class="rule">
                     <div class="rule-number">17</div>
-
                     <div>
                         <h3>De eindberekening</h3>
-
                         <p>
                             Aan het einde van het seizoen
-                            wordt alles berekend.
-
-                            De totale buit van iedere
-                            deelnemer wordt naast elkaar
-                            gelegd.
-
-                            Degene die gedurende het hele
-                            seizoen de meeste buit heeft
-                            verzameld eindigt bovenaan.
+                            wordt alles berekend. De totale
+                            buit van iedere deelnemer wordt
+                            naast elkaar gelegd.
                         </p>
                     </div>
                 </div>
 
                 <div class="rule">
                     <div class="rule-number">18</div>
-
                     <div>
                         <h3>De prijzen</h3>
-
                         <p>
                             Na de eindberekening wordt het
                             uiteindelijke geldbedrag verdeeld
                             over de top 3 van het seizoen.
-
-                            Hierdoor blijft iedere week
-                            belangrijk en kan iedere
-                            deelnemer tot het laatste spel
-                            blijven strijden voor een plek
-                            in de top 3.
                         </p>
                     </div>
+                </div>
+
+                <div class="rule">
+
+                    <div class="rule-number">
+                        19
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Extra informatie
+                        </h3>
+
+                        <p>
+                            Extra informatie wordt voor elk
+                            spel nog duidelijk uitgelegd aan
+                            alle deelnemers. Ook voor ieder
+                            nieuw seizoen worden de belangrijkste
+                            informatie en eventuele aanvullende
+                            regels vooraf duidelijk uitgelegd.
+                        </p>
+
+                    </div>
+
                 </div>
 
             </div>
@@ -2357,477 +2137,33 @@
 
                 <p>
                     Wil jij meedoen aan De Kluis?
-
-                    Kies hieronder waarvoor je je wilt
-                    aanmelden: als crimineel of als bewaker.
-                    Zet je Discord duidelijk erbij.
-                    Via onze Discord hoor je of je bent aangenomen.
+                    Houd onze Discord in de gaten voor
+                    informatie over nieuwe inschrijfrondes.
                 </p>
 
             </div>
 
-            <div class="registration-grid">
+            <div class="closed-registration">
 
-                <!-- =================================
-                     CRIMINEEL FORMULIER
-                ================================== -->
-
-                <div class="registration-card">
-
-                    <h3>
-                        Crimineel
-                    </h3>
-
-                    <p>
-                        Denk jij dat je slim genoeg bent
-                        om het terrein binnen te komen,
-                        de buit te vinden en veilig te
-                        ontsnappen?
-
-                        Meld je dan aan als crimineel.
-                        Zet je Discord duidelijk erbij.
-                    </p>
-
-                    <form
-                        action="https://formspree.io/f/mgawkqvj"
-                        method="POST"
-                        class="registration-form"
-                        data-role="crimineel"
-                    >
-
-                        <input
-                            type="hidden"
-                            name="rol"
-                            value="Crimineel"
-                        >
-
-                        <input
-                            type="hidden"
-                            name="subject"
-                            value="Nieuwe crimineel inschrijving - De Kluis FiveM"
-                        >
-
-                        <div class="form-grid">
-
-                            <div class="form-group">
-
-                                <label for="crimineel-naam">
-                                    FiveM-naam *
-                                </label>
-
-                                <input
-                                    type="text"
-                                    id="crimineel-naam"
-                                    name="FiveM-naam"
-                                    placeholder="Bijvoorbeeld: Jan123"
-                                    required
-                                >
-
-                            </div>
-
-                            <div class="form-group">
-
-                                <label for="crimineel-discord">
-                                    Discord-naam *
-                                </label>
-
-                                <input
-                                    type="text"
-                                    id="crimineel-discord"
-                                    name="Discord-naam"
-                                    placeholder="Bijvoorbeeld: Jan123"
-                                    required
-                                >
-
-                            </div>
-
-                            <div class="form-group">
-
-                                <label for="crimineel-email">
-                                    E-mailadres *
-                                </label>
-
-                                <input
-                                    type="email"
-                                    id="crimineel-email"
-                                    name="E-mailadres"
-                                    placeholder="jouw@email.nl"
-                                    required
-                                >
-
-                            </div>
-
-                            <div class="form-group">
-
-                                <label for="crimineel-leeftijd">
-                                    Leeftijd *
-                                </label>
-
-                                <input
-                                    type="number"
-                                    id="crimineel-leeftijd"
-                                    name="Leeftijd"
-                                    min="12"
-                                    max="99"
-                                    placeholder="18"
-                                    required
-                                >
-
-                            </div>
-
-                            <div class="form-group full">
-
-                                <label for="crimineel-ervaring">
-                                    FiveM-ervaring
-                                </label>
-
-                                <select
-                                    id="crimineel-ervaring"
-                                    name="FiveM-ervaring"
-                                >
-
-                                    <option value="Beginner">
-                                        Beginner
-                                    </option>
-
-                                    <option value="Gemiddeld">
-                                        Gemiddeld
-                                    </option>
-
-                                    <option value="Ervaren">
-                                        Ervaren
-                                    </option>
-
-                                    <option value="Zeer ervaren">
-                                        Zeer ervaren
-                                    </option>
-
-                                </select>
-
-                            </div>
-
-                            <div class="form-group full">
-
-                                <label for="crimineel-motivatie">
-                                    Waarom wil je crimineel zijn? *
-                                </label>
-
-                                <textarea
-                                    id="crimineel-motivatie"
-                                    name="Motivatie"
-                                    placeholder="Vertel ons waarom jij geschikt bent..."
-                                    required
-                                ></textarea>
-
-                            </div>
-
-                            <div class="form-group full">
-
-                                <label for="crimineel-extra">
-                                    Extra informatie
-                                </label>
-
-                                <textarea
-                                    id="crimineel-extra"
-                                    name="Extra informatie"
-                                    placeholder="Heb je nog iets dat wij moeten weten?"
-                                ></textarea>
-
-                            </div>
-
-                        </div>
-
-                        <p class="form-info">
-                            Door het formulier te versturen geef je
-                            aan dat de ingevulde informatie correct is
-                            en dat je akkoord gaat met de spelregels
-                            van De Kluis.
-                        </p>
-
-                        <button
-                            type="submit"
-                            class="button button-gold submit-button"
-                        >
-                            Aanmelding als crimineel versturen
-                        </button>
-
-                        <div class="form-loading">
-                            <span class="loading-dot"></span>
-                            <span class="loading-dot"></span>
-                            <span class="loading-dot"></span>
-                            Aanmelding wordt verstuurd...
-                        </div>
-
-                        <div class="form-message success-message">
-
-                            <div class="form-message-icon">
-                                ✓
-                            </div>
-
-                            <h4>
-                                Aanmelding ontvangen!
-                            </h4>
-
-                            <p>
-                                Bedankt voor je aanmelding als crimineel
-                                bij De Kluis FiveM. Wij gaan je inschrijving
-                                bekijken. Houd onze Discord goed in de gaten.
-                                Daar hoor je of je bent aangenomen.
-                            </p>
-
-                        </div>
-
-                        <div class="form-message error-message">
-
-                            <div class="form-message-icon">
-                                !
-                            </div>
-
-                            <h4>
-                                Er ging iets mis
-                            </h4>
-
-                            <p>
-                                Je aanmelding kon helaas niet worden
-                                verstuurd. Controleer je gegevens en
-                                probeer het opnieuw.
-                            </p>
-
-                        </div>
-
-                    </form>
-
+                <div class="closed-icon">
+                    🔒
                 </div>
 
-                <!-- =================================
-                     BEWAKER FORMULIER
-                ================================== -->
+                <h3>
+                    De inschrijvingen zijn helaas gesloten.
+                </h3>
 
-                <div class="registration-card">
+                <div class="closed-line"></div>
 
-                    <h3>
-                        Bewaker
-                    </h3>
+                <p class="closed-subtitle">
+                    Houd de Discord in de gaten voor meer informatie.
+                </p>
 
-                    <p>
-                        Denk jij dat je de criminelen kunt
-                        vinden voordat ze met hun buit
-                        ontsnappen?
-
-                        Meld je dan aan als bewaker.
-                        Zet je Discord duidelijk erbij.
-                    </p>
-
-                    <form
-                        action="https://formspree.io/f/xzeprwdk"
-                        method="POST"
-                        class="registration-form"
-                        data-role="bewaker"
-                    >
-
-                        <input
-                            type="hidden"
-                            name="rol"
-                            value="Bewaker"
-                        >
-
-                        <input
-                            type="hidden"
-                            name="subject"
-                            value="Nieuwe bewaker inschrijving - De Kluis FiveM"
-                        >
-
-                        <div class="form-grid">
-
-                            <div class="form-group">
-
-                                <label for="bewaker-naam">
-                                    FiveM-naam *
-                                </label>
-
-                                <input
-                                    type="text"
-                                    id="bewaker-naam"
-                                    name="FiveM-naam"
-                                    placeholder="Bijvoorbeeld: Shadow"
-                                    required
-                                >
-
-                            </div>
-
-                            <div class="form-group">
-
-                                <label for="bewaker-discord">
-                                    Discord-naam *
-                                </label>
-
-                                <input
-                                    type="text"
-                                    id="bewaker-discord"
-                                    name="Discord-naam"
-                                    placeholder="Bijvoorbeeld: shadow123"
-                                    required
-                                >
-
-                            </div>
-
-                            <div class="form-group">
-
-                                <label for="bewaker-email">
-                                    E-mailadres *
-                                </label>
-
-                                <input
-                                    type="email"
-                                    id="bewaker-email"
-                                    name="E-mailadres"
-                                    placeholder="jouw@email.nl"
-                                    required
-                                >
-
-                            </div>
-
-                            <div class="form-group">
-
-                                <label for="bewaker-leeftijd">
-                                    Leeftijd *
-                                </label>
-
-                                <input
-                                    type="number"
-                                    id="bewaker-leeftijd"
-                                    name="Leeftijd"
-                                    min="13"
-                                    max="99"
-                                    placeholder="18"
-                                    required
-                                >
-
-                            </div>
-
-                            <div class="form-group full">
-
-                                <label for="bewaker-ervaring">
-                                    FiveM-ervaring
-                                </label>
-
-                                <select
-                                    id="bewaker-ervaring"
-                                    name="FiveM-ervaring"
-                                >
-
-                                    <option value="Beginner">
-                                        Beginner
-                                    </option>
-
-                                    <option value="Gemiddeld">
-                                        Gemiddeld
-                                    </option>
-
-                                    <option value="Ervaren">
-                                        Ervaren
-                                    </option>
-
-                                    <option value="Zeer ervaren">
-                                        Zeer ervaren
-                                    </option>
-
-                                </select>
-
-                            </div>
-
-                            <div class="form-group full">
-
-                                <label for="bewaker-motivatie">
-                                    Waarom wil je bewaker worden? *
-                                </label>
-
-                                <textarea
-                                    id="bewaker-motivatie"
-                                    name="Motivatie"
-                                    placeholder="Vertel ons waarom jij geschikt bent als bewaker..."
-                                    required
-                                ></textarea>
-
-                            </div>
-
-                            <div class="form-group full">
-
-                                <label for="bewaker-extra">
-                                    Extra informatie
-                                </label>
-
-                                <textarea
-                                    id="bewaker-extra"
-                                    name="Extra informatie"
-                                    placeholder="Heb je nog iets dat wij moeten weten?"
-                                ></textarea>
-
-                            </div>
-
-                        </div>
-
-                        <p class="form-info">
-                            Door het formulier te versturen geef je
-                            aan dat de ingevulde informatie correct is
-                            en dat je akkoord gaat met de spelregels
-                            van De Kluis.
-                        </p>
-
-                        <button
-                            type="submit"
-                            class="button button-gold submit-button"
-                        >
-                            Aanmelding als bewaker versturen
-                        </button>
-
-                        <div class="form-loading">
-                            <span class="loading-dot"></span>
-                            <span class="loading-dot"></span>
-                            <span class="loading-dot"></span>
-                            Aanmelding wordt verstuurd...
-                        </div>
-
-                        <div class="form-message success-message">
-
-                            <div class="form-message-icon">
-                                ✓
-                            </div>
-
-                            <h4>
-                                Aanmelding ontvangen!
-                            </h4>
-
-                            <p>
-                                Bedankt voor je aanmelding als bewaker
-                                bij De Kluis FiveM. Wij gaan je inschrijving
-                                bekijken. Houd onze Discord goed in de gaten.
-                                Daar hoor je of je bent aangenomen.
-                            </p>
-
-                        </div>
-
-                        <div class="form-message error-message">
-
-                            <div class="form-message-icon">
-                                !
-                            </div>
-
-                            <h4>
-                                Er ging iets mis
-                            </h4>
-
-                            <p>
-                                Je aanmelding kon helaas niet worden
-                                verstuurd. Controleer je gegevens en
-                                probeer het opnieuw.
-                            </p>
-
-                        </div>
-
-                    </form>
-
-                </div>
+                <p>
+                    Zodra de inschrijvingen voor een nieuw
+                    seizoen openen, laten wij dit via onze
+                    Discord weten.
+                </p>
 
             </div>
 
@@ -2875,10 +2211,6 @@
                     <p>
                         Kom gezellig bij onze Discord
                         voor nieuws, updates en vragen.
-
-                        <br><br>
-
-                        Discord soon actief
 
                         <br><br>
 
@@ -2971,11 +2303,25 @@
                         Navigatie
                     </h3>
 
-                    <a href="#home">Home</a>
-                    <a href="#seizoen">Seizoen</a>
-                    <a href="#deelnemers">Deelnemers</a>
-                    <a href="#uitleg">Spelregels</a>
-                    <a href="#servers">Servers</a>
+                    <a href="#home">
+                        Home
+                    </a>
+
+                    <a href="#seizoen">
+                        Seizoen
+                    </a>
+
+                    <a href="#deelnemers">
+                        Deelnemers
+                    </a>
+
+                    <a href="#uitleg">
+                        Spelregels
+                    </a>
+
+                    <a href="#servers">
+                        Servers
+                    </a>
 
                 </div>
 
@@ -2986,11 +2332,7 @@
                     </h3>
 
                     <a href="#inschrijven">
-                        Inschrijven als crimineel
-                    </a>
-
-                    <a href="#inschrijven">
-                        Inschrijven als bewaker
+                        Inschrijven
                     </a>
 
                     <a href="#contact">
@@ -3044,101 +2386,6 @@
         </div>
 
     </footer>
-
-    <!-- =========================================
-         FORMSPREE + SUCCESMELDING
-    ========================================= -->
-
-    <script>
-
-        const forms = document.querySelectorAll(".registration-form");
-
-        forms.forEach(function(form) {
-
-            form.addEventListener("submit", async function(event) {
-
-                event.preventDefault();
-
-                const button = form.querySelector(".submit-button");
-                const loading = form.querySelector(".form-loading");
-                const successMessage = form.querySelector(".success-message");
-                const errorMessage = form.querySelector(".error-message");
-
-                // Oude meldingen verbergen
-                successMessage.classList.remove("show");
-                errorMessage.classList.remove("show");
-
-                // Knop tijdelijk uitschakelen
-                button.disabled = true;
-                button.style.opacity = "0.6";
-                button.style.pointerEvents = "none";
-
-                // Laadanimatie tonen
-                loading.classList.add("show");
-
-                try {
-
-                    const formData = new FormData(form);
-
-                    const response = await fetch(
-                        form.action,
-                        {
-                            method: "POST",
-                            body: formData,
-                            headers: {
-                                "Accept": "application/json"
-                            }
-                        }
-                    );
-
-                    loading.classList.remove("show");
-
-                    if (response.ok) {
-
-                        // Formulier verbergen
-                        form.querySelector(".form-grid").style.display = "none";
-                        form.querySelector(".form-info").style.display = "none";
-                        button.style.display = "none";
-
-                        // Succesmelding tonen
-                        successMessage.classList.add("show");
-
-                        // Naar de melding scrollen
-                        setTimeout(function() {
-
-                            successMessage.scrollIntoView({
-                                behavior: "smooth",
-                                block: "center"
-                            });
-
-                        }, 100);
-
-                    } else {
-
-                        throw new Error("Formulier kon niet worden verzonden.");
-
-                    }
-
-                } catch (error) {
-
-                    console.error(error);
-
-                    loading.classList.remove("show");
-
-                    errorMessage.classList.add("show");
-
-                    // Knop weer actief maken
-                    button.disabled = false;
-                    button.style.opacity = "1";
-                    button.style.pointerEvents = "auto";
-
-                }
-
-            });
-
-        });
-
-    </script>
 
 </body>
 </html>
