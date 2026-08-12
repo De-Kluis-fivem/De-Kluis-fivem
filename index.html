@@ -1,23 +1,13 @@
 <!DOCTYPE html>
 <html lang="nl">
-
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="description"
-        content="De Kluis FiveM - Een spannende FiveM spelshow."
-    >
-
-    <meta
-        name="theme-color"
-        content="#080a0b"
-    >
+    <meta name="description" content="De Kluis FiveM - Een spannende FiveM spelshow.">
+    <meta name="theme-color" content="#080a0b">
 
     <title>De Kluis FiveM</title>
-
 
     <style>
 
@@ -55,6 +45,20 @@
                     rgba(210, 165, 70, 0.10),
                     transparent 40%
                 );
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.025;
+
+            background-image:
+                radial-gradient(#ffffff 1px, transparent 1px);
+
+            background-size: 4px 4px;
         }
 
         a {
@@ -101,7 +105,6 @@
         ========================================= */
 
         @keyframes fadeUp {
-
             from {
                 opacity: 0;
                 transform: translateY(35px);
@@ -111,11 +114,9 @@
                 opacity: 1;
                 transform: translateY(0);
             }
-
         }
 
         @keyframes fadeIn {
-
             from {
                 opacity: 0;
             }
@@ -123,26 +124,20 @@
             to {
                 opacity: 1;
             }
-
         }
 
         @keyframes goldPulse {
-
             0%,
             100% {
-                box-shadow:
-                    0 0 0 rgba(201,155,67,0);
+                box-shadow: 0 0 0 rgba(201,155,67,0);
             }
 
             50% {
-                box-shadow:
-                    0 0 30px rgba(201,155,67,0.15);
+                box-shadow: 0 0 30px rgba(201,155,67,0.15);
             }
-
         }
 
         @keyframes logoFloat {
-
             0%,
             100% {
                 transform: translateY(0);
@@ -151,92 +146,72 @@
             50% {
                 transform: translateY(-8px);
             }
-
         }
 
         @keyframes rotateGlow {
-
             from {
-                transform:
-                    translate(-50%, -50%)
-                    rotate(0deg);
+                transform: translate(-50%, -50%) rotate(0deg);
             }
 
             to {
-                transform:
-                    translate(-50%, -50%)
-                    rotate(360deg);
+                transform: translate(-50%, -50%) rotate(360deg);
             }
-
         }
 
-        @keyframes closedFloat {
+        @keyframes shine {
+            0% {
+                transform: translateX(-150%) skewX(-20deg);
+            }
 
+            100% {
+                transform: translateX(150%) skewX(-20deg);
+            }
+        }
+
+        @keyframes glowText {
+            0%,
+            100% {
+                text-shadow: 0 0 5px rgba(201,155,67,0.1);
+            }
+
+            50% {
+                text-shadow:
+                    0 0 15px rgba(201,155,67,0.35),
+                    0 0 30px rgba(201,155,67,0.1);
+            }
+        }
+
+        @keyframes partnerScroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        @keyframes floatCard {
             0%,
             100% {
                 transform: translateY(0);
             }
 
             50% {
-                transform: translateY(-8px);
+                transform: translateY(-5px);
             }
-
         }
 
-        @keyframes closedLine {
-
-            0%,
-            100% {
-                opacity: 0.5;
-                transform: scaleX(0.65);
-            }
-
-            50% {
-                opacity: 1;
-                transform: scaleX(1);
-            }
-
-        }
-
-        @keyframes partnerMove {
-
-            from {
-                transform: translateX(0);
-            }
-
-            to {
-                transform: translateX(-50%);
-            }
-
-        }
-
-        @keyframes partnerGlow {
-
-            0%,
-            100% {
-                box-shadow:
-                    0 0 0 rgba(201,155,67,0);
-            }
-
-            50% {
-                box-shadow:
-                    0 0 35px rgba(201,155,67,0.15);
-            }
-
-        }
-
-        @keyframes applicationSuccess {
-
+        @keyframes successPop {
             0% {
-                transform: scale(0.85);
                 opacity: 0;
+                transform: scale(0.9) translateY(10px);
             }
 
             100% {
-                transform: scale(1);
                 opacity: 1;
+                transform: scale(1) translateY(0);
             }
-
         }
 
         .hero-content {
@@ -257,7 +232,6 @@
         .registration-card,
         .contact-card,
         .employee-card,
-        .application-card,
         .partner-card {
             animation: fadeIn 0.8s ease both;
         }
@@ -316,7 +290,6 @@
 
         .nav-logo img:hover {
             transform: scale(1.08) rotate(-2deg);
-
             filter:
                 drop-shadow(0 0 18px rgba(201,155,67,0.4));
         }
@@ -333,7 +306,7 @@
         .nav-links a {
             color: #ddd;
 
-            font-size: 10px;
+            font-size: 11px;
             font-weight: 700;
 
             text-transform: uppercase;
@@ -350,7 +323,7 @@
         .nav-register {
             border: 1px solid var(--gold);
 
-            padding: 11px 14px;
+            padding: 11px 16px;
 
             border-radius: 4px;
 
@@ -361,9 +334,7 @@
 
         .nav-register:hover {
             background: var(--gold);
-
             color: #111 !important;
-
             transform: translateY(-2px);
         }
 
@@ -410,21 +381,18 @@
             left: 50%;
             top: 50%;
 
-            transform:
-                translate(-50%, -50%);
+            transform: translate(-50%, -50%);
 
             border-radius: 50%;
 
-            border:
-                1px solid rgba(201,155,67,0.08);
+            border: 1px solid rgba(201,155,67,0.08);
 
             box-shadow:
                 0 0 100px rgba(201,155,67,0.05);
 
             pointer-events: none;
 
-            animation:
-                rotateGlow 35s linear infinite;
+            animation: rotateGlow 35s linear infinite;
         }
 
         .hero-content {
@@ -459,6 +427,8 @@
             text-transform: uppercase;
 
             margin-bottom: 15px;
+
+            animation: glowText 4s ease-in-out infinite;
         }
 
         .hero h1 {
@@ -526,6 +496,31 @@
             transition: 0.25s ease;
 
             cursor: pointer;
+
+            position: relative;
+            overflow: hidden;
+        }
+
+        .button::after {
+            content: "";
+
+            position: absolute;
+
+            top: -50%;
+            left: -100%;
+
+            width: 60%;
+            height: 200%;
+
+            background: rgba(255,255,255,0.18);
+
+            transform: skewX(-20deg);
+
+            transition: 0.5s ease;
+        }
+
+        .button:hover::after {
+            left: 150%;
         }
 
         .button-gold {
@@ -545,9 +540,7 @@
         }
 
         .button-gold:hover {
-            transform:
-                translateY(-3px)
-                scale(1.02);
+            transform: translateY(-3px) scale(1.02);
 
             box-shadow:
                 0 15px 35px rgba(201,155,67,0.25);
@@ -676,8 +669,7 @@
         .card:hover {
             transform: translateY(-8px);
 
-            border-color:
-                rgba(201,155,67,0.55);
+            border-color: rgba(201,155,67,0.55);
 
             box-shadow:
                 0 15px 40px rgba(0,0,0,0.3);
@@ -744,11 +736,8 @@
 
         .season-card:hover {
             transform: translateY(-6px);
-
             border-color: var(--gold);
-
-            box-shadow:
-                0 15px 35px rgba(0,0,0,0.3);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
         }
 
         .season-number {
@@ -799,7 +788,6 @@
             text-transform: uppercase;
 
             display: flex;
-
             align-items: center;
 
             gap: 15px;
@@ -853,8 +841,7 @@
         }
 
         .participant:hover {
-            border-color:
-                rgba(201,155,67,0.6);
+            border-color: rgba(201,155,67,0.6);
 
             transform: translateY(-6px);
 
@@ -889,6 +876,13 @@
             font-weight: 900;
 
             margin-bottom: 15px;
+
+            transition: 0.3s ease;
+        }
+
+        .participant:hover .participant-avatar {
+            transform: scale(1.08);
+            box-shadow: 0 0 25px rgba(201,155,67,0.2);
         }
 
         .participant h3 {
@@ -915,22 +909,33 @@
         ========================================= */
 
         #werknemers {
-            background: #0c1012;
+            background:
+                radial-gradient(
+                    circle at 50% 20%,
+                    rgba(201,155,67,0.07),
+                    transparent 45%
+                ),
+                #0a0d0f;
         }
 
-        .employee-grid {
+        .employees-grid {
             display: grid;
-
-            grid-template-columns:
-                repeat(4, 1fr);
-
+            grid-template-columns: repeat(4, 1fr);
             gap: 20px;
         }
 
         .employee-card {
             position: relative;
+            overflow: hidden;
 
-            padding: 25px;
+            padding: 28px 20px;
+
+            min-height: 300px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
 
             text-align: center;
 
@@ -942,12 +947,12 @@
                 );
 
             border: 1px solid var(--border);
+            border-radius: 8px;
 
-            border-radius: 7px;
-
-            overflow: hidden;
-
-            transition: 0.35s ease;
+            transition:
+                transform 0.35s ease,
+                border-color 0.35s ease,
+                box-shadow 0.35s ease;
         }
 
         .employee-card::before {
@@ -959,7 +964,7 @@
             left: 0;
 
             width: 100%;
-            height: 3px;
+            height: 2px;
 
             background:
                 linear-gradient(
@@ -968,88 +973,89 @@
                     var(--gold),
                     transparent
                 );
+
+            transform: translateX(-100%);
+
+            transition: 0.5s ease;
         }
 
         .employee-card:hover {
-            transform:
-                translateY(-8px)
-                scale(1.01);
+            transform: translateY(-10px) scale(1.01);
 
-            border-color:
-                rgba(201,155,67,0.65);
+            border-color: rgba(201,155,67,0.7);
 
             box-shadow:
-                0 20px 45px rgba(0,0,0,0.35);
+                0 20px 50px rgba(0,0,0,0.45),
+                0 0 25px rgba(201,155,67,0.08);
         }
 
-        .employee-image {
-            width: 125px;
-            height: 125px;
+        .employee-card:hover::before {
+            transform: translateX(100%);
+        }
 
-            margin: 5px auto 20px;
+        .employee-image-wrap {
+            width: 120px;
+            height: 120px;
+
+            border-radius: 50%;
+
+            padding: 3px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--gold-light),
+                    var(--gold-dark)
+                );
+
+            box-shadow:
+                0 0 0 rgba(201,155,67,0);
+
+            transition: 0.35s ease;
+
+            margin-bottom: 20px;
+        }
+
+        .employee-card:hover .employee-image-wrap {
+            transform: scale(1.08);
+
+            box-shadow:
+                0 0 30px rgba(201,155,67,0.22);
+        }
+
+        .employee-image-wrap img {
+            width: 100%;
+            height: 100%;
 
             object-fit: cover;
 
             border-radius: 50%;
 
-            border: 2px solid var(--gold);
-
-            background: #0b0e10;
-
-            box-shadow:
-                0 0 25px rgba(201,155,67,0.10);
-
-            transition: 0.35s ease;
-        }
-
-        .employee-card:hover .employee-image {
-            transform:
-                scale(1.06)
-                rotate(1deg);
-
-            box-shadow:
-                0 0 35px rgba(201,155,67,0.25);
+            background: #080b0c;
         }
 
         .employee-card h3 {
-            font-size: 17px;
+            font-size: 16px;
 
             text-transform: uppercase;
+
+            margin-bottom: 8px;
         }
 
         .employee-rank {
-            display: inline-block;
-
-            margin-top: 9px;
-
-            padding: 7px 11px;
-
-            border: 1px solid
-                rgba(201,155,67,0.35);
-
-            border-radius: 4px;
-
             color: var(--gold-light);
 
-            font-size: 10px;
+            font-size: 11px;
 
             font-weight: 800;
 
-            letter-spacing: 1px;
+            letter-spacing: 2px;
 
             text-transform: uppercase;
         }
 
-        .employee-status {
-            margin-top: 10px;
-
-            color: #777d7c;
-
-            font-size: 10px;
-
-            text-transform: uppercase;
-
-            letter-spacing: 1px;
+        .employee-soon {
+            color: #707575;
         }
 
 
@@ -1091,9 +1097,7 @@
 
         .rule:hover {
             transform: translateY(-4px);
-
-            border-color:
-                rgba(201,155,67,0.5);
+            border-color: rgba(201,155,67,0.5);
         }
 
         .rule-number {
@@ -1132,8 +1136,7 @@
 
             background: #111618;
 
-            border: 1px solid
-                rgba(201,155,67,0.25);
+            border: 1px solid rgba(201,155,67,0.25);
 
             border-left: 3px solid #c99b43;
 
@@ -1194,8 +1197,7 @@
         .server-card:hover {
             transform: translateY(-6px);
 
-            border-color:
-                rgba(201,155,67,0.55);
+            border-color: rgba(201,155,67,0.55);
 
             box-shadow:
                 0 15px 35px rgba(0,0,0,0.3);
@@ -1238,8 +1240,7 @@
 
             padding: 7px 10px;
 
-            border: 1px solid
-                rgba(201,155,67,0.35);
+            border: 1px solid rgba(201,155,67,0.35);
 
             border-radius: 4px;
 
@@ -1256,231 +1257,24 @@
 
 
         /* =========================================
-           INSCHRIJVINGEN GESLOTEN
+           INSCHRIJVEN / SOLLICITEREN
         ========================================= */
 
-        #inschrijven {
-            background: #0c1012;
-        }
-
-        .registration-closed {
-            position: relative;
-
-            max-width: 850px;
-
-            margin: 0 auto;
-
-            padding: 65px 45px;
-
-            text-align: center;
-
-            background:
-                radial-gradient(
-                    circle at center,
-                    rgba(201,155,67,0.10),
-                    transparent 55%
-                ),
-                linear-gradient(
-                    145deg,
-                    #171c1f,
-                    #0b0f10
-                );
-
-            border: 1px solid
-                rgba(201,155,67,0.35);
-
-            border-radius: 8px;
-
-            overflow: hidden;
-
-            box-shadow:
-                0 25px 70px rgba(0,0,0,0.35);
-
-            animation:
-                fadeIn 0.8s ease both,
-                goldPulse 5s ease-in-out infinite;
-        }
-
-        .registration-closed::before {
-            content: "";
-
-            position: absolute;
-
-            top: 0;
-            left: 0;
-
-            width: 100%;
-            height: 3px;
-
-            background:
-                linear-gradient(
-                    90deg,
-                    transparent,
-                    var(--gold-light),
-                    var(--gold),
-                    var(--gold-light),
-                    transparent
-                );
-
-            animation:
-                closedLine 3s ease-in-out infinite;
-        }
-
-        .registration-closed::after {
-            content: "";
-
-            position: absolute;
-
-            width: 300px;
-            height: 300px;
-
-            top: 50%;
-            left: 50%;
-
-            transform:
-                translate(-50%, -50%);
-
-            border-radius: 50%;
-
-            border:
-                1px solid
-                rgba(201,155,67,0.08);
-
-            pointer-events: none;
-
-            animation:
-                rotateGlow 18s linear infinite;
-        }
-
-        .closed-icon {
-            position: relative;
-            z-index: 2;
-
-            width: 85px;
-            height: 85px;
-
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-
-            margin: 0 auto 25px;
-
-            border-radius: 50%;
-
-            background:
-                radial-gradient(
-                    circle,
-                    rgba(201,155,67,0.20),
-                    rgba(201,155,67,0.03)
-                );
-
-            border: 1px solid
-                rgba(201,155,67,0.45);
-
-            font-size: 36px;
-
-            box-shadow:
-                0 0 35px rgba(201,155,67,0.12);
-
-            animation:
-                logoFloat 4s ease-in-out infinite;
-        }
-
-        .registration-closed h3,
-        .registration-closed > p,
-        .closed-buttons,
-        .closed-note {
-            position: relative;
-            z-index: 2;
-        }
-
-        .registration-closed h3 {
-            margin-top: 12px;
-
-            margin-bottom: 18px;
-
-            font-size:
-                clamp(25px, 4vw, 38px);
-
-            font-weight: 900;
-
-            text-transform: uppercase;
-        }
-
-        .registration-closed > p {
-            max-width: 650px;
-
-            margin: 0 auto;
-
-            color: var(--gray);
-
-            font-size: 15px;
-
-            line-height: 1.8;
-        }
-
-        .closed-buttons {
-            display: flex;
-
-            justify-content: center;
-
-            gap: 15px;
-
-            flex-wrap: wrap;
-
-            margin-top: 30px;
-        }
-
-        .closed-note {
-            max-width: 650px;
-
-            margin: 30px auto 0;
-
-            padding: 15px 20px;
-
-            background:
-                rgba(201,155,67,0.05);
-
-            border:
-                1px solid
-                rgba(201,155,67,0.15);
-
-            border-radius: 5px;
-
-            color: #777d7c;
-
-            font-size: 11px;
-
-            line-height: 1.7;
-        }
-
-        .closed-note strong {
-            color: var(--gold-light);
-        }
-
-
-        /* =========================================
-           SOLLICITEREN
-        ========================================= */
-
+        #inschrijven,
         #solliciteren {
             background: #0c1012;
         }
 
-        .application-wrapper {
+        .registration-grid {
             display: grid;
 
             grid-template-columns:
-                0.8fr 1.2fr;
+                repeat(2, 1fr);
 
             gap: 25px;
-
-            align-items: start;
         }
 
-        .application-info,
-        .application-card {
+        .registration-card {
             padding: 35px;
 
             background:
@@ -1490,103 +1284,35 @@
                     #0b0f10
                 );
 
-            border:
-                1px solid var(--border);
+            border: 1px solid var(--border);
 
             border-radius: 7px;
 
             box-shadow:
                 0 20px 50px rgba(0,0,0,0.25);
+
+            transition: 0.3s ease;
         }
 
-        .application-info h3 {
+        .registration-card:hover {
+            border-color: rgba(201,155,67,0.45);
+            transform: translateY(-4px);
+        }
+
+        .registration-card h3 {
             font-size: 24px;
 
             text-transform: uppercase;
-
-            margin-bottom: 15px;
         }
 
-        .application-info p {
-            color: var(--gray);
-
-            font-size: 14px;
-
-            line-height: 1.8;
-
-            margin-bottom: 20px;
-        }
-
-        .volunteer-box {
-            padding: 20px;
-
-            border-left: 3px solid var(--gold);
-
-            background:
-                rgba(201,155,67,0.06);
-
-            border-radius: 4px;
-
-            margin-top: 25px;
-        }
-
-        .volunteer-box strong {
-            color: var(--gold-light);
-        }
-
-        .application-roles {
-            display: grid;
-
-            grid-template-columns:
-                1fr 1fr;
-
-            gap: 10px;
-
-            margin-top: 25px;
-        }
-
-        .role-tag {
-            padding: 11px;
-
-            border:
-                1px solid
-                rgba(201,155,67,0.25);
-
-            border-radius: 4px;
-
-            color: #ddd;
-
-            font-size: 11px;
-
-            text-align: center;
-
-            text-transform: uppercase;
-
-            transition: 0.25s ease;
-        }
-
-        .role-tag:hover {
-            border-color: var(--gold);
-
-            color: var(--gold-light);
-
-            transform: translateY(-2px);
-        }
-
-        .application-card h3 {
-            font-size: 24px;
-
-            text-transform: uppercase;
-
-            margin-bottom: 10px;
-        }
-
-        .application-card > p {
+        .registration-card > p {
             color: var(--gray);
 
             font-size: 13px;
 
             line-height: 1.7;
+
+            margin-top: 10px;
 
             margin-bottom: 25px;
         }
@@ -1631,8 +1357,7 @@
 
             color: white;
 
-            border:
-                1px solid #373c3d;
+            border: 1px solid #373c3d;
 
             border-radius: 4px;
 
@@ -1649,8 +1374,7 @@
             border-color: var(--gold);
 
             box-shadow:
-                0 0 0 2px
-                rgba(201,155,67,0.08);
+                0 0 0 2px rgba(201,155,67,0.08);
 
             transform: translateY(-1px);
         }
@@ -1681,230 +1405,61 @@
             border: none;
         }
 
-        .application-success {
+        .volunteer-warning {
+            margin: 0 0 25px;
+
+            padding: 18px 20px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(201,155,67,0.08),
+                    rgba(201,155,67,0.02)
+                );
+
+            border: 1px solid rgba(201,155,67,0.3);
+
+            border-left: 3px solid var(--gold);
+
+            border-radius: 5px;
+
+            color: #c6c8c7;
+
+            font-size: 13px;
+
+            line-height: 1.7;
+        }
+
+        .volunteer-warning strong {
+            color: var(--gold-light);
+        }
+
+        .success-message {
             display: none;
 
-            padding: 35px;
+            margin-top: 20px;
 
-            text-align: center;
+            padding: 18px 20px;
 
-            border:
-                1px solid
-                rgba(201,155,67,0.4);
+            border: 1px solid rgba(91, 190, 105, 0.35);
 
-            background:
-                rgba(201,155,67,0.06);
+            border-left: 3px solid #5bbe69;
 
-            border-radius: 6px;
+            background: rgba(91, 190, 105, 0.07);
 
-            animation:
-                applicationSuccess 0.5s ease both;
+            color: #bce8c2;
+
+            border-radius: 5px;
+
+            font-size: 13px;
+
+            line-height: 1.6;
+
+            animation: successPop 0.45s ease both;
         }
 
-        .application-success.show {
+        .success-message.show {
             display: block;
-        }
-
-        .success-icon {
-            font-size: 50px;
-
-            margin-bottom: 15px;
-        }
-
-        .application-success h3 {
-            color: var(--gold-light);
-
-            margin-bottom: 12px;
-        }
-
-        .application-success p {
-            color: var(--gray);
-
-            line-height: 1.8;
-
-            font-size: 14px;
-        }
-
-
-        /* =========================================
-           PARTNERS
-        ========================================= */
-
-        #partners {
-            overflow: hidden;
-
-            background:
-                #07090a;
-        }
-
-        .partners-header {
-            text-align: center;
-
-            margin-bottom: 40px;
-        }
-
-        .partners-header p {
-            max-width: 650px;
-
-            margin: 12px auto 0;
-
-            color: var(--gray);
-
-            line-height: 1.8;
-
-            font-size: 14px;
-        }
-
-        .partners-marquee {
-            position: relative;
-
-            width: 100%;
-
-            overflow: hidden;
-
-            padding: 15px 0 25px;
-
-            mask-image:
-                linear-gradient(
-                    to right,
-                    transparent,
-                    black 8%,
-                    black 92%,
-                    transparent
-                );
-
-            -webkit-mask-image:
-                linear-gradient(
-                    to right,
-                    transparent,
-                    black 8%,
-                    black 92%,
-                    transparent
-                );
-        }
-
-        .partners-track {
-            display: flex;
-
-            width: max-content;
-
-            gap: 20px;
-
-            animation:
-                partnerMove 35s linear infinite;
-        }
-
-        .partners-track:hover {
-            animation-play-state: paused;
-        }
-
-        .partner-card {
-            width: 245px;
-
-            min-width: 245px;
-
-            padding: 25px;
-
-            text-align: center;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    #171c1f,
-                    #0b0f11
-                );
-
-            border:
-                1px solid var(--border);
-
-            border-radius: 7px;
-
-            transition: 0.3s ease;
-        }
-
-        .partner-card:hover {
-            transform: translateY(-7px);
-
-            border-color: var(--gold);
-
-            animation:
-                partnerGlow 2s ease-in-out infinite;
-        }
-
-        .partner-logo {
-            width: 90px;
-            height: 90px;
-
-            object-fit: contain;
-
-            margin-bottom: 15px;
-
-            border-radius: 8px;
-
-            border:
-                1px solid
-                rgba(201,155,67,0.25);
-
-            background: #080b0c;
-
-            padding: 8px;
-        }
-
-        .partner-card h3 {
-            font-size: 15px;
-
-            text-transform: uppercase;
-
-            margin-bottom: 8px;
-        }
-
-        .partner-status {
-            color: var(--gold-light);
-
-            font-size: 10px;
-
-            font-weight: 800;
-
-            text-transform: uppercase;
-
-            letter-spacing: 1px;
-
-            margin-bottom: 15px;
-        }
-
-        .partner-discord {
-            display: inline-flex;
-
-            align-items: center;
-            justify-content: center;
-
-            width: 100%;
-
-            padding: 10px;
-
-            border:
-                1px solid
-                rgba(201,155,67,0.3);
-
-            border-radius: 4px;
-
-            color: #ddd;
-
-            font-size: 10px;
-
-            font-weight: 800;
-
-            text-transform: uppercase;
-
-            transition: 0.25s ease;
-        }
-
-        .partner-discord:hover {
-            background: var(--gold);
-
-            color: #111;
-
-            border-color: var(--gold);
         }
 
 
@@ -1926,8 +1481,7 @@
 
             background: #111618;
 
-            border:
-                1px solid var(--border);
+            border: 1px solid var(--border);
 
             border-radius: 6px;
 
@@ -1936,9 +1490,7 @@
 
         .contact-card:hover {
             transform: translateY(-5px);
-
-            border-color:
-                rgba(201,155,67,0.5);
+            border-color: rgba(201,155,67,0.5);
         }
 
         .contact-icon {
@@ -1975,14 +1527,221 @@
 
 
         /* =========================================
+           PARTNERSCHAPPEN
+        ========================================= */
+
+        #partners {
+            padding-bottom: 80px;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #0b0f11,
+                    #07090a
+                );
+        }
+
+        .partners-heading {
+            text-align: center;
+
+            margin-bottom: 45px;
+        }
+
+        .partners-heading .section-label {
+            display: block;
+        }
+
+        .partners-heading h2 {
+            margin-top: 8px;
+
+            font-size: clamp(32px, 5vw, 48px);
+
+            font-weight: 900;
+
+            text-transform: uppercase;
+        }
+
+        .partners-heading p {
+            max-width: 650px;
+
+            margin: 12px auto 0;
+
+            color: var(--gray);
+
+            font-size: 14px;
+
+            line-height: 1.7;
+        }
+
+        .partner-slider {
+            width: 100%;
+
+            overflow: hidden;
+
+            position: relative;
+
+            mask-image:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    black 8%,
+                    black 92%,
+                    transparent
+                );
+
+            -webkit-mask-image:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    black 8%,
+                    black 92%,
+                    transparent
+                );
+        }
+
+        .partner-track {
+            display: flex;
+
+            width: max-content;
+
+            gap: 20px;
+
+            animation:
+                partnerScroll 35s linear infinite;
+        }
+
+        .partner-slider:hover .partner-track {
+            animation-play-state: paused;
+        }
+
+        .partner-card {
+            flex: 0 0 250px;
+
+            min-height: 220px;
+
+            padding: 25px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            flex-direction: column;
+
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #171c1f,
+                    #0b0f11
+                );
+
+            border: 1px solid var(--border);
+
+            border-radius: 8px;
+
+            transition: 0.3s ease;
+        }
+
+        .partner-card:hover {
+            border-color: var(--gold);
+
+            box-shadow:
+                0 0 30px rgba(201,155,67,0.12);
+        }
+
+        .partner-logo {
+            width: 85px;
+            height: 85px;
+
+            object-fit: contain;
+
+            border-radius: 50%;
+
+            border: 2px solid var(--gold);
+
+            padding: 4px;
+
+            background: #080b0c;
+
+            margin-bottom: 15px;
+
+            transition: 0.35s ease;
+        }
+
+        .partner-card:hover .partner-logo {
+            transform: rotate(4deg) scale(1.08);
+
+            box-shadow:
+                0 0 25px rgba(201,155,67,0.2);
+        }
+
+        .partner-card h3 {
+            font-size: 15px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 7px;
+        }
+
+        .partner-status {
+            color: #777d7c;
+
+            font-size: 10px;
+
+            letter-spacing: 1.5px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 15px;
+        }
+
+        .partner-discord {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 8px 13px;
+
+            border: 1px solid rgba(201,155,67,0.35);
+
+            border-radius: 4px;
+
+            color: var(--gold-light);
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+
+            transition: 0.25s ease;
+        }
+
+        .partner-discord:hover {
+            background: var(--gold);
+
+            color: #111;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================================
            FOOTER
         ========================================= */
 
         footer {
             padding: 55px 20px 25px;
 
-            border-top:
-                1px solid var(--border);
+            border-top: 1px solid var(--border);
 
             background: #07090a;
         }
@@ -2027,16 +1786,13 @@
 
         .footer-column a:hover {
             color: var(--gold-light);
-
             transform: translateX(3px);
         }
 
         .footer-bottom {
             padding-top: 25px;
 
-            border-top:
-                1px solid
-                rgba(255,255,255,0.06);
+            border-top: 1px solid rgba(255,255,255,0.06);
 
             text-align: center;
 
@@ -2054,50 +1810,43 @@
            MOBIEL
         ========================================= */
 
-        @media (max-width: 1050px) {
+        @media (max-width: 1100px) {
 
             .nav-links {
-                gap: 10px;
+                gap: 11px;
             }
 
             .nav-links a {
                 font-size: 9px;
             }
 
+            .employees-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+
+        @media (max-width: 1000px) {
+
             .cards {
-                grid-template-columns:
-                    1fr 1fr;
+                grid-template-columns: 1fr 1fr;
             }
 
             .participants {
-                grid-template-columns:
-                    1fr 1fr;
-            }
-
-            .employee-grid {
-                grid-template-columns:
-                    1fr 1fr;
+                grid-template-columns: 1fr 1fr;
             }
 
             .season-grid {
-                grid-template-columns:
-                    1fr 1fr;
+                grid-template-columns: 1fr 1fr;
             }
 
             .contact-grid {
-                grid-template-columns:
-                    1fr 1fr;
+                grid-template-columns: 1fr 1fr;
             }
 
             .footer-grid {
-                grid-template-columns:
-                    1fr 1fr;
+                grid-template-columns: 1fr 1fr;
             }
-
-            .application-wrapper {
-                grid-template-columns: 1fr;
-            }
-
         }
 
 
@@ -2131,14 +1880,14 @@
             .participants,
             .rules,
             .servers-grid,
+            .registration-grid,
             .contact-grid,
             .form-grid {
                 grid-template-columns: 1fr;
             }
 
-            .employee-grid {
-                grid-template-columns:
-                    1fr 1fr;
+            .employees-grid {
+                grid-template-columns: 1fr 1fr;
             }
 
             .form-group.full {
@@ -2146,23 +1895,20 @@
             }
 
             .season-grid {
-                grid-template-columns:
-                    1fr 1fr;
+                grid-template-columns: 1fr 1fr;
             }
 
             .footer-grid {
-                grid-template-columns:
-                    1fr 1fr;
+                grid-template-columns: 1fr 1fr;
             }
 
             .button {
                 width: 100%;
             }
 
-            .registration-closed {
-                padding: 50px 25px;
+            .partner-card {
+                flex-basis: 220px;
             }
-
         }
 
 
@@ -2185,34 +1931,23 @@
                 font-size: 34px;
             }
 
+            .registration-card {
+                padding: 25px;
+            }
+
             .season-grid,
             .footer-grid,
-            .employee-grid,
-            .application-roles {
+            .employees-grid {
                 grid-template-columns: 1fr;
             }
 
             .rule {
                 grid-template-columns: 1fr;
-
                 gap: 10px;
             }
-
-            .application-info,
-            .application-card {
-                padding: 25px;
-            }
-
-            .partner-card {
-                width: 220px;
-
-                min-width: 220px;
-            }
-
         }
 
     </style>
-
 </head>
 
 
@@ -2229,10 +1964,7 @@
 
             <nav>
 
-                <a
-                    href="#home"
-                    class="nav-logo"
-                >
+                <a href="#home" class="nav-logo">
 
                     <img
                         src="logo.png"
@@ -2245,65 +1977,45 @@
                 <ul class="nav-links">
 
                     <li>
-                        <a href="#home">
-                            Home
-                        </a>
+                        <a href="#home">Home</a>
                     </li>
 
                     <li>
-                        <a href="#seizoen">
-                            Seizoen
-                        </a>
+                        <a href="#seizoen">Seizoen</a>
                     </li>
 
                     <li>
-                        <a href="#deelnemers">
-                            Deelnemers
-                        </a>
+                        <a href="#deelnemers">Deelnemers</a>
                     </li>
 
                     <li>
-                        <a href="#werknemers">
-                            Werknemers
-                        </a>
+                        <a href="#werknemers">Werknemers</a>
                     </li>
 
                     <li>
-                        <a href="#uitleg">
-                            Uitleg
-                        </a>
+                        <a href="#uitleg">Uitleg</a>
                     </li>
 
                     <li>
-                        <a href="#servers">
-                            Servers
-                        </a>
+                        <a href="#servers">Servers</a>
                     </li>
 
                     <li>
-                        <a href="#solliciteren">
-                            Solliciteren
-                        </a>
+                        <a href="#solliciteren">Solliciteren</a>
                     </li>
 
                     <li>
-                        <a href="#partners">
-                            Partners
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#contact">
-                            Contact
-                        </a>
+                        <a href="#contact">Contact</a>
                     </li>
 
                     <li>
                         <a
-                            href="#inschrijven"
+                            href="https://discord.gg/dekluis"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             class="nav-register"
                         >
-                            Inschrijvingen
+                            Discord
                         </a>
                     </li>
 
@@ -2333,9 +2045,11 @@
                 class="hero-logo"
             >
 
+
             <div class="hero-small">
                 FIVEM • SPELSHOW • COMPETITIE
             </div>
+
 
             <h1>
 
@@ -2346,6 +2060,7 @@
                 </span>
 
             </h1>
+
 
             <p class="hero-description">
 
@@ -2361,14 +2076,16 @@
 
             </p>
 
+
             <div class="hero-buttons">
 
                 <a
                     href="#inschrijven"
                     class="button button-gold"
                 >
-                    Inschrijvingen gesloten
+                    Schrijf je in
                 </a>
+
 
                 <a
                     href="#uitleg"
@@ -2383,7 +2100,7 @@
                     rel="noopener noreferrer"
                     class="button button-outline"
                 >
-                    Discord
+                    Join Discord
                 </a>
 
             </div>
@@ -2412,9 +2129,11 @@
                 </h2>
 
                 <p>
+
                     Alles draait om samenwerking,
                     strategie, lef, risico en natuurlijk
                     de kluis.
+
                 </p>
 
             </div>
@@ -2433,10 +2152,12 @@
                     </h3>
 
                     <p>
+
                         De deelnemers krijgen verschillende
                         opdrachten. Door deze succesvol
                         te voltooien kan er geld worden
                         verdiend voor de kluis.
+
                     </p>
 
                 </div>
@@ -2453,10 +2174,12 @@
                     </h3>
 
                     <p>
+
                         Vertrouw je medespelers,
                         denk goed na over je keuzes
                         en probeer de andere deelnemers
                         voor te blijven.
+
                     </p>
 
                 </div>
@@ -2473,10 +2196,12 @@
                     </h3>
 
                     <p>
+
                         Uiteindelijk moeten de finalisten
                         proberen de kluis te kraken
                         en zoveel mogelijk waarde veilig
                         te stellen.
+
                     </p>
 
                 </div>
@@ -2507,11 +2232,13 @@
                 </h2>
 
                 <p>
+
                     Eén seizoen van De Kluis duurt
                     vier weken. Iedere week wordt er
                     één spel gespeeld. Aan het einde
                     van het seizoen wordt de totale
                     buit van alle deelnemers berekend.
+
                 </p>
 
             </div>
@@ -2608,6 +2335,7 @@
                 </h3>
 
                 <p>
+
                     Na het vierde spel wordt de totale
                     buit van iedere deelnemer berekend.
                     Alle buit die tijdens het volledige
@@ -2621,6 +2349,7 @@
                     Het uiteindelijke geldbedrag wordt
                     vervolgens verdeeld over de top 3
                     van het seizoen.
+
                 </p>
 
             </div>
@@ -2649,6 +2378,7 @@
                 </h2>
 
                 <p>
+
                     Ieder seizoen strijden maximaal
                     twaalf deelnemers om de grootste
                     totale buit.
@@ -2656,6 +2386,7 @@
                     De deelnemers zijn verdeeld over
                     vier teams. Iedere week is er een
                     ander team aan de beurt.
+
                 </p>
 
             </div>
@@ -2670,25 +2401,19 @@
                 <div class="participant">
                     <div class="participant-avatar">?</div>
                     <h3>Deelnemer 01</h3>
-                    <div class="participant-status">
-                        Binnenkort bekend
-                    </div>
+                    <div class="participant-status">Binnenkort bekend</div>
                 </div>
 
                 <div class="participant">
                     <div class="participant-avatar">?</div>
                     <h3>Deelnemer 02</h3>
-                    <div class="participant-status">
-                        Binnenkort bekend
-                    </div>
+                    <div class="participant-status">Binnenkort bekend</div>
                 </div>
 
                 <div class="participant">
                     <div class="participant-avatar">?</div>
                     <h3>Deelnemer 03</h3>
-                    <div class="participant-status">
-                        Binnenkort bekend
-                    </div>
+                    <div class="participant-status">Binnenkort bekend</div>
                 </div>
 
             </div>
@@ -2703,25 +2428,19 @@
                 <div class="participant">
                     <div class="participant-avatar">?</div>
                     <h3>Deelnemer 04</h3>
-                    <div class="participant-status">
-                        Binnenkort bekend
-                    </div>
+                    <div class="participant-status">Binnenkort bekend</div>
                 </div>
 
                 <div class="participant">
                     <div class="participant-avatar">?</div>
                     <h3>Deelnemer 05</h3>
-                    <div class="participant-status">
-                        Binnenkort bekend
-                    </div>
+                    <div class="participant-status">Binnenkort bekend</div>
                 </div>
 
                 <div class="participant">
                     <div class="participant-avatar">?</div>
                     <h3>Deelnemer 06</h3>
-                    <div class="participant-status">
-                        Binnenkort bekend
-                    </div>
+                    <div class="participant-status">Binnenkort bekend</div>
                 </div>
 
             </div>
@@ -2736,25 +2455,19 @@
                 <div class="participant">
                     <div class="participant-avatar">?</div>
                     <h3>Deelnemer 07</h3>
-                    <div class="participant-status">
-                        Binnenkort bekend
-                    </div>
+                    <div class="participant-status">Binnenkort bekend</div>
                 </div>
 
                 <div class="participant">
                     <div class="participant-avatar">?</div>
                     <h3>Deelnemer 08</h3>
-                    <div class="participant-status">
-                        Binnenkort bekend
-                    </div>
+                    <div class="participant-status">Binnenkort bekend</div>
                 </div>
 
                 <div class="participant">
                     <div class="participant-avatar">?</div>
                     <h3>Deelnemer 09</h3>
-                    <div class="participant-status">
-                        Binnenkort bekend
-                    </div>
+                    <div class="participant-status">Binnenkort bekend</div>
                 </div>
 
             </div>
@@ -2769,25 +2482,19 @@
                 <div class="participant">
                     <div class="participant-avatar">?</div>
                     <h3>Deelnemer 10</h3>
-                    <div class="participant-status">
-                        Binnenkort bekend
-                    </div>
+                    <div class="participant-status">Binnenkort bekend</div>
                 </div>
 
                 <div class="participant">
                     <div class="participant-avatar">?</div>
                     <h3>Deelnemer 11</h3>
-                    <div class="participant-status">
-                        Binnenkort bekend
-                    </div>
+                    <div class="participant-status">Binnenkort bekend</div>
                 </div>
 
                 <div class="participant">
                     <div class="participant-avatar">?</div>
                     <h3>Deelnemer 12</h3>
-                    <div class="participant-status">
-                        Binnenkort bekend
-                    </div>
+                    <div class="participant-status">Binnenkort bekend</div>
                 </div>
 
             </div>
@@ -2808,7 +2515,7 @@
             <div class="section-header">
 
                 <div class="section-label">
-                    Het team
+                    Het team achter De Kluis
                 </div>
 
                 <h2>
@@ -2816,25 +2523,33 @@
                 </h2>
 
                 <p>
-                    Maak kennis met het team achter
-                    De Kluis FiveM. De functies en
-                    medewerkers worden hier bekendgemaakt
-                    zodra ze officieel zijn toegevoegd.
+
+                    Dit zijn de mensen die ervoor zorgen
+                    dat De Kluis FiveM kan blijven draaien.
+                    Nieuwe teamleden worden hier toegevoegd
+                    zodra zij officieel onderdeel zijn van
+                    het team.
+
                 </p>
 
             </div>
 
 
-            <div class="employee-grid">
+            <div class="employees-grid">
 
+
+                <!-- WERKNEMER 1 -->
 
                 <div class="employee-card">
 
-                    <img
-                        src="werknemer1.png"
-                        alt="Werknemer 1"
-                        class="employee-image"
-                    >
+                    <div class="employee-image-wrap">
+
+                        <img
+                            src="werknemer1.png"
+                            alt="Werknemer 1"
+                        >
+
+                    </div>
 
                     <h3>
                         Shadow
@@ -2844,173 +2559,205 @@
                         Eigenaar / Oprichter
                     </div>
 
-                    <div class="employee-status">
-                        Actief
-                    </div>
-
                 </div>
 
+
+                <!-- WERKNEMER 2 -->
 
                 <div class="employee-card">
 
-                    <img
-                        src="werknemer2.png"
-                        alt="Werknemer 2"
-                        class="employee-image"
-                    >
+                    <div class="employee-image-wrap">
 
-                    <h3>
-                        Binnenkort bekend
-                    </h3>
+                        <img
+                            src="werknemer2.png"
+                            alt="Werknemer 2"
+                        >
 
-                    <div class="employee-rank">
-                        Moderator
                     </div>
 
-                    <div class="employee-status">
+                    <h3>
+                        Werknemer 2
+                    </h3>
+
+                    <div class="employee-rank employee-soon">
                         Binnenkort bekend
                     </div>
 
                 </div>
 
+
+                <!-- WERKNEMER 3 -->
 
                 <div class="employee-card">
 
-                    <img
-                        src="werknemer3.png"
-                        alt="Werknemer 3"
-                        class="employee-image"
-                    >
+                    <div class="employee-image-wrap">
 
-                    <h3>
-                        Binnenkort bekend
-                    </h3>
+                        <img
+                            src="werknemer3.png"
+                            alt="Werknemer 3"
+                        >
 
-                    <div class="employee-rank">
-                        Content Manager
                     </div>
 
-                    <div class="employee-status">
+                    <h3>
+                        Werknemer 3
+                    </h3>
+
+                    <div class="employee-rank employee-soon">
                         Binnenkort bekend
                     </div>
 
                 </div>
 
+
+                <!-- WERKNEMER 4 -->
 
                 <div class="employee-card">
 
-                    <img
-                        src="werknemer4.png"
-                        alt="Werknemer 4"
-                        class="employee-image"
-                    >
+                    <div class="employee-image-wrap">
 
-                    <h3>
-                        Binnenkort bekend
-                    </h3>
+                        <img
+                            src="werknemer4.png"
+                            alt="Werknemer 4"
+                        >
 
-                    <div class="employee-rank">
-                        Partner Manager
                     </div>
 
-                    <div class="employee-status">
+                    <h3>
+                        Werknemer 4
+                    </h3>
+
+                    <div class="employee-rank employee-soon">
                         Binnenkort bekend
                     </div>
 
                 </div>
 
+
+                <!-- WERKNEMER 5 -->
 
                 <div class="employee-card">
 
-                    <img
-                        src="werknemer5.png"
-                        alt="Werknemer 5"
-                        class="employee-image"
-                    >
+                    <div class="employee-image-wrap">
 
-                    <h3>
-                        Binnenkort bekend
-                    </h3>
+                        <img
+                            src="werknemer5.png"
+                            alt="Werknemer 5"
+                        >
 
-                    <div class="employee-rank">
-                        Developer
                     </div>
 
-                    <div class="employee-status">
+                    <h3>
+                        Werknemer 5
+                    </h3>
+
+                    <div class="employee-rank employee-soon">
                         Binnenkort bekend
                     </div>
 
                 </div>
 
+
+                <!-- WERKNEMER 6 -->
 
                 <div class="employee-card">
 
-                    <img
-                        src="werknemer6.png"
-                        alt="Werknemer 6"
-                        class="employee-image"
-                    >
+                    <div class="employee-image-wrap">
 
-                    <h3>
-                        Binnenkort bekend
-                    </h3>
+                        <img
+                            src="werknemer6.png"
+                            alt="Werknemer 6"
+                        >
 
-                    <div class="employee-rank">
-                        Cameraman
                     </div>
 
-                    <div class="employee-status">
+                    <h3>
+                        Werknemer 6
+                    </h3>
+
+                    <div class="employee-rank employee-soon">
                         Binnenkort bekend
                     </div>
 
                 </div>
 
+
+                <!-- WERKNEMER 7 -->
 
                 <div class="employee-card">
 
-                    <img
-                        src="werknemer7.png"
-                        alt="Werknemer 7"
-                        class="employee-image"
-                    >
+                    <div class="employee-image-wrap">
 
-                    <h3>
-                        Binnenkort bekend
-                    </h3>
+                        <img
+                            src="werknemer7.png"
+                            alt="Werknemer 7"
+                        >
 
-                    <div class="employee-rank">
-                        Presentator
                     </div>
 
-                    <div class="employee-status">
+                    <h3>
+                        Werknemer 7
+                    </h3>
+
+                    <div class="employee-rank employee-soon">
                         Binnenkort bekend
                     </div>
 
                 </div>
 
+
+                <!-- WERKNEMER 8 -->
 
                 <div class="employee-card">
 
-                    <img
-                        src="werknemer8.png"
-                        alt="Werknemer 8"
-                        class="employee-image"
-                    >
+                    <div class="employee-image-wrap">
 
-                    <h3>
-                        Binnenkort bekend
-                    </h3>
+                        <img
+                            src="werknemer8.png"
+                            alt="Werknemer 8"
+                        >
 
-                    <div class="employee-rank">
-                        Editor / Designer
                     </div>
 
-                    <div class="employee-status">
+                    <h3>
+                        Werknemer 8
+                    </h3>
+
+                    <div class="employee-rank employee-soon">
                         Binnenkort bekend
                     </div>
 
                 </div>
 
+
+            </div>
+
+
+            <div class="important-box">
+
+                <div class="section-label">
+                    Werken bij De Kluis
+                </div>
+
+                <h3>
+                    Wil jij onderdeel worden van het team?
+                </h3>
+
+                <p>
+
+                    De functies binnen De Kluis zijn op dit
+                    moment vrijwillig. Dit betekent dat je
+                    in het begin niet betaald krijgt voor je
+                    werkzaamheden.
+
+                    We zoeken mensen die gemotiveerd zijn,
+                    goed kunnen samenwerken en echt willen
+                    helpen om De Kluis verder op te bouwen.
+
+                    Wil je solliciteren? Bekijk dan het
+                    sollicitatieformulier hieronder.
+
+                </p>
 
             </div>
 
@@ -3038,11 +2785,13 @@
                 </h2>
 
                 <p>
+
                     De deelnemers krijgen de opdracht
                     om een beveiligd terrein binnen te
                     gaan, zoveel mogelijk waardevolle
                     buit te verzamelen en deze veilig
                     naar buiten te brengen.
+
                 </p>
 
             </div>
@@ -3050,21 +2799,16 @@
 
             <div class="rules">
 
-
                 <div class="rule">
                     <div class="rule-number">01</div>
-
                     <div>
                         <h3>Het doel</h3>
-
                         <p>
-                            Verzamel zoveel mogelijk
-                            waardevolle buit en zorg ervoor
-                            dat je deze veilig buiten het
-                            beveiligde terrein krijgt.
-
-                            Alleen buit die daadwerkelijk
-                            veilig is gesteld telt mee.
+                            Verzamel zoveel mogelijk waardevolle
+                            buit en zorg ervoor dat je deze veilig
+                            buiten het beveiligde terrein krijgt.
+                            Alleen buit die daadwerkelijk veilig is
+                            gesteld telt mee.
                         </p>
                     </div>
                 </div>
@@ -3072,18 +2816,14 @@
 
                 <div class="rule">
                     <div class="rule-number">02</div>
-
                     <div>
                         <h3>Het beveiligde terrein</h3>
-
                         <p>
-                            De deelnemers bevinden zich
-                            op een zwaar beveiligd terrein.
-                            Op verschillende plekken zijn
-                            waardevolle spullen verborgen.
-
-                            De deelnemers moeten het terrein
-                            verkennen zonder gepakt te worden.
+                            De deelnemers bevinden zich op een zwaar
+                            beveiligd terrein. Op verschillende plekken
+                            zijn waardevolle spullen verborgen.
+                            De deelnemers moeten het terrein verkennen
+                            zonder gepakt te worden.
                         </p>
                     </div>
                 </div>
@@ -3091,18 +2831,13 @@
 
                 <div class="rule">
                     <div class="rule-number">03</div>
-
                     <div>
                         <h3>De kluizen</h3>
-
                         <p>
-                            Op het terrein bevinden zich
-                            meerdere kluizen.
-
-                            Niet iedere kluis bevat dezelfde
-                            hoeveelheid waardevolle spullen.
-                            Sommige kluizen zijn daarom
-                            meer risico waard dan andere.
+                            Op het terrein bevinden zich meerdere kluizen.
+                            Niet iedere kluis bevat dezelfde hoeveelheid
+                            waardevolle spullen. Sommige kluizen zijn
+                            daarom meer risico waard dan andere.
                         </p>
                     </div>
                 </div>
@@ -3110,17 +2845,13 @@
 
                 <div class="rule">
                     <div class="rule-number">04</div>
-
                     <div>
                         <h3>De goudstaven</h3>
-
                         <p>
-                            Goudstaven zijn één van de
-                            belangrijkste vormen van buit.
-
-                            Iedere goudstaaf die veilig
-                            buiten het terrein wordt gebracht
-                            draagt bij aan de totale buit.
+                            Goudstaven zijn één van de belangrijkste
+                            vormen van buit. Iedere goudstaaf die veilig
+                            buiten het terrein wordt gebracht draagt bij
+                            aan de totale buit.
                         </p>
                     </div>
                 </div>
@@ -3128,17 +2859,13 @@
 
                 <div class="rule">
                     <div class="rule-number">05</div>
-
                     <div>
                         <h3>De diamant</h3>
-
                         <p>
-                            Naast het goud is er een bijzonder
-                            waardevolle diamant.
-
-                            De diamant bevindt zich op een
-                            extra beveiligde locatie en brengt
-                            daardoor een groter risico met zich mee.
+                            Naast het goud is er een bijzonder waardevolle
+                            diamant. De diamant bevindt zich op een extra
+                            beveiligde locatie en brengt daardoor een
+                            groter risico met zich mee.
                         </p>
                     </div>
                 </div>
@@ -3146,20 +2873,14 @@
 
                 <div class="rule">
                     <div class="rule-number">06</div>
-
                     <div>
                         <h3>Het extra wapen</h3>
-
                         <p>
-                            Op het terrein kunnen de criminelen
-                            één extra wapen vinden.
-
-                            Het wapen is verborgen en moet
-                            tijdens het spel worden gevonden.
-
-                            De criminelen zullen zelf moeten
-                            beslissen wanneer en hoe ze het
-                            extra wapen inzetten.
+                            Op het terrein kunnen de criminelen één extra
+                            wapen vinden. Het wapen is verborgen en moet
+                            tijdens het spel worden gevonden. De criminelen
+                            zullen zelf moeten beslissen wanneer en hoe ze
+                            het extra wapen inzetten.
                         </p>
                     </div>
                 </div>
@@ -3167,18 +2888,13 @@
 
                 <div class="rule">
                     <div class="rule-number">07</div>
-
                     <div>
                         <h3>De radio</h3>
-
                         <p>
-                            Er is ook een speciale radio
-                            verborgen op het terrein.
-
-                            Wanneer de criminelen deze radio
-                            vinden, kunnen ze proberen de
-                            communicatie van de bewakers
-                            af te luisteren.
+                            Er is ook een speciale radio verborgen op het
+                            terrein. Wanneer de criminelen deze radio vinden,
+                            kunnen ze proberen de communicatie van de
+                            bewakers af te luisteren.
                         </p>
                     </div>
                 </div>
@@ -3186,17 +2902,12 @@
 
                 <div class="rule">
                     <div class="rule-number">08</div>
-
                     <div>
                         <h3>De bewakers</h3>
-
                         <p>
-                            Het terrein wordt bewaakt door
-                            drie bewakers.
-
-                            De hoofd-bewaker is Shadow.
-                            Daarnaast zijn er nog twee andere
-                            bewakers die het terrein bewaken.
+                            Het terrein wordt bewaakt door drie bewakers.
+                            De hoofd-bewaker is Shadow. Daarnaast zijn er
+                            nog twee andere bewakers die het terrein bewaken.
                         </p>
                     </div>
                 </div>
@@ -3204,19 +2915,12 @@
 
                 <div class="rule">
                     <div class="rule-number">09</div>
-
                     <div>
                         <h3>De bewakers ontwijken</h3>
-
                         <p>
-                            De criminelen moeten goed opletten
-                            waar de bewakers zich bevinden.
-
-                            Word je gezien, dan kan een
-                            bewaker achter je aan komen.
-
-                            Gebruik het terrein, werk samen
-                            en denk goed na over je route.
+                            De criminelen moeten goed opletten waar de
+                            bewakers zich bevinden. Word je gezien, dan kan
+                            een bewaker achter je aan komen.
                         </p>
                     </div>
                 </div>
@@ -3224,19 +2928,13 @@
 
                 <div class="rule">
                     <div class="rule-number">10</div>
-
                     <div>
                         <h3>Levens</h3>
-
                         <p>
-                            Tijdens het spel hebben de
-                            deelnemers een beperkt aantal
-                            levens.
-
-                            Wanneer een deelnemer wordt
-                            uitgeschakeld of volgens de
-                            spelregels wordt geraakt, kan
-                            dit gevolgen hebben voor zijn
+                            Tijdens het spel hebben de deelnemers een beperkt
+                            aantal levens. Wanneer een deelnemer wordt
+                            uitgeschakeld of volgens de spelregels wordt
+                            geraakt, kan dit gevolgen hebben voor zijn
                             resterende levens.
                         </p>
                     </div>
@@ -3245,19 +2943,13 @@
 
                 <div class="rule">
                     <div class="rule-number">11</div>
-
                     <div>
                         <h3>Samenwerken</h3>
-
                         <p>
-                            Deelnemers kunnen samenwerken
-                            om de kraak tot een succes te
-                            maken.
-
-                            Eén deelnemer kan bijvoorbeeld
-                            een kluis openen terwijl een
-                            andere deelnemer de omgeving
-                            in de gaten houdt.
+                            Deelnemers kunnen samenwerken om de kraak tot
+                            een succes te maken. Eén deelnemer kan bijvoorbeeld
+                            een kluis openen terwijl een andere deelnemer de
+                            omgeving in de gaten houdt.
                         </p>
                     </div>
                 </div>
@@ -3265,17 +2957,12 @@
 
                 <div class="rule">
                     <div class="rule-number">12</div>
-
                     <div>
                         <h3>Het risico</h3>
-
                         <p>
-                            Hoe meer buit je probeert te
-                            verzamelen, hoe langer je mogelijk
-                            op het terrein moet blijven.
-
-                            Meer buit betekent daardoor
-                            vaak ook meer risico.
+                            Hoe meer buit je probeert te verzamelen, hoe
+                            langer je mogelijk op het terrein moet blijven.
+                            Meer buit betekent daardoor vaak ook meer risico.
                         </p>
                     </div>
                 </div>
@@ -3283,17 +2970,12 @@
 
                 <div class="rule">
                     <div class="rule-number">13</div>
-
                     <div>
                         <h3>De tijd</h3>
-
                         <p>
-                            Iedere spelronde duurt maximaal
-                            anderhalf uur.
-
-                            De deelnemers moeten binnen
-                            deze tijd zoveel mogelijk buit
-                            verzamelen en veilig naar buiten
+                            Iedere spelronde duurt maximaal anderhalf uur.
+                            De deelnemers moeten binnen deze tijd zoveel
+                            mogelijk buit verzamelen en veilig naar buiten
                             brengen.
                         </p>
                     </div>
@@ -3302,17 +2984,13 @@
 
                 <div class="rule">
                     <div class="rule-number">14</div>
-
                     <div>
                         <h3>De ontsnapping</h3>
-
                         <p>
-                            Het verzamelen van de buit is
-                            slechts één deel van het spel.
-
-                            Uiteindelijk moet de buit ook
-                            daadwerkelijk veilig buiten het
-                            beveiligde terrein worden gebracht.
+                            Het verzamelen van de buit is slechts één deel
+                            van het spel. Uiteindelijk moet de buit ook
+                            daadwerkelijk veilig buiten het beveiligde
+                            terrein worden gebracht.
                         </p>
                     </div>
                 </div>
@@ -3320,15 +2998,13 @@
 
                 <div class="rule">
                     <div class="rule-number">15</div>
-
                     <div>
                         <h3>De eindbuit</h3>
-
                         <p>
-                            Na afloop van ieder spel wordt
-                            bekeken hoeveel waarde de
-                            deelnemers daadwerkelijk
-                            hebben veiliggesteld.
+                            Na afloop van ieder spel wordt bekeken hoeveel
+                            waarde de deelnemers daadwerkelijk hebben
+                            veiliggesteld. Goudstaven, de diamant en andere
+                            waardevolle voorwerpen worden meegenomen.
                         </p>
                     </div>
                 </div>
@@ -3336,19 +3012,12 @@
 
                 <div class="rule">
                     <div class="rule-number">16</div>
-
                     <div>
                         <h3>Het seizoen</h3>
-
                         <p>
-                            Eén seizoen duurt vier weken.
-
-                            Iedere week wordt er één spel
-                            gespeeld.
-
-                            De buit van alle vier de spellen
-                            wordt uiteindelijk bij elkaar
-                            opgeteld.
+                            Eén seizoen duurt vier weken. Iedere week wordt
+                            er één spel gespeeld. De buit van alle vier de
+                            spellen wordt uiteindelijk bij elkaar opgeteld.
                         </p>
                     </div>
                 </div>
@@ -3356,17 +3025,14 @@
 
                 <div class="rule">
                     <div class="rule-number">17</div>
-
                     <div>
                         <h3>De eindberekening</h3>
-
                         <p>
-                            Aan het einde van het seizoen
-                            wordt alles berekend.
-
-                            De totale buit van iedere
-                            deelnemer wordt naast elkaar
-                            gelegd.
+                            Aan het einde van het seizoen wordt alles berekend.
+                            De totale buit van iedere deelnemer wordt naast
+                            elkaar gelegd. Degene die gedurende het hele
+                            seizoen de meeste buit heeft verzameld eindigt
+                            bovenaan.
                         </p>
                     </div>
                 </div>
@@ -3374,14 +3040,11 @@
 
                 <div class="rule">
                     <div class="rule-number">18</div>
-
                     <div>
                         <h3>De prijzen</h3>
-
                         <p>
-                            Na de eindberekening wordt het
-                            uiteindelijke geldbedrag verdeeld
-                            over de top 3 van het seizoen.
+                            Na de eindberekening wordt het uiteindelijke
+                            geldbedrag verdeeld over de top 3 van het seizoen.
                         </p>
                     </div>
                 </div>
@@ -3389,23 +3052,17 @@
 
                 <div class="rule">
                     <div class="rule-number">19</div>
-
                     <div>
                         <h3>Extra informatie</h3>
-
                         <p>
-                            Extra informatie wordt voor elk
-                            spel nog duidelijk uitgelegd aan
-                            alle deelnemers.
-
-                            Ook voor ieder nieuw seizoen
-                            worden de belangrijkste informatie,
-                            afspraken en eventuele wijzigingen
-                            vooraf duidelijk uitgelegd.
+                            Extra informatie wordt voor elk spel nog duidelijk
+                            uitgelegd aan alle deelnemers. Ook voor ieder nieuw
+                            seizoen worden de belangrijkste informatie,
+                            afspraken en eventuele wijzigingen vooraf duidelijk
+                            uitgelegd.
                         </p>
                     </div>
                 </div>
-
 
             </div>
 
@@ -3421,6 +3078,7 @@
                 </h3>
 
                 <p>
+
                     De Kluis draait niet alleen om het
                     verzamelen van goud.
 
@@ -3437,6 +3095,9 @@
                     Maar hoe meer waarde je probeert
                     mee te nemen, hoe groter het risico
                     dat je wordt onderschept.
+
+                    De keuze ligt bij jullie.
+
                 </p>
 
             </div>
@@ -3465,15 +3126,19 @@
                 </h2>
 
                 <p>
+
                     Ieder seizoen kan op een andere
                     FiveM-server worden gespeeld.
+
+                    Hieronder komen de servers te staan
+                    waarop De Kluis momenteel wordt gespeeld.
+
                 </p>
 
             </div>
 
 
             <div class="servers-grid">
-
 
                 <div class="server-card">
 
@@ -3562,7 +3227,6 @@
 
                 </div>
 
-
             </div>
 
         </div>
@@ -3571,7 +3235,7 @@
 
 
     <!-- =========================================
-         INSCHRIJVINGEN GESLOTEN
+         INSCHRIJVEN
     ========================================= -->
 
     <section id="inschrijven">
@@ -3581,75 +3245,284 @@
             <div class="section-header">
 
                 <div class="section-label">
-                    Aanmeldingen
+                    Doe mee
                 </div>
 
                 <h2>
-                    Inschrijvingen
+                    Inschrijven
                 </h2>
 
                 <p>
-                    Op dit moment zijn de inschrijvingen
-                    voor De Kluis gesloten.
+
+                    De inschrijvingen voor De Kluis zijn
+                    momenteel gesloten.
+
                 </p>
 
             </div>
 
 
-            <div class="registration-closed">
-
-                <div class="closed-icon">
-                    🔒
-                </div>
-
-                <div class="section-label">
-                    INSCHRIJVINGEN GESLOTEN
-                </div>
+            <div
+                class="important-box"
+                style="max-width: 700px; margin-left: auto; margin-right: auto; text-align: center;"
+            >
 
                 <h3>
-                    De inschrijvingen zijn helaas gesloten
+                    Inschrijvingen gesloten
                 </h3>
 
                 <p>
-                    Op dit moment kun je je helaas niet
-                    meer aanmelden voor De Kluis.
 
-                    <br><br>
+                    Op dit moment kun je je niet aanmelden
+                    als crimineel of als bewaker. Houd onze
+                    Discord-server in de gaten voor het laatste
+                    nieuws en om te zien wanneer de inschrijvingen
+                    weer openen.
 
-                    Bekijk onze Discord-server voor
-                    meer informatie, nieuws en updates
-                    over toekomstige inschrijvingen.
                 </p>
 
+                <a
+                    href="https://discord.gg/dekluis"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="button button-gold"
+                    style="margin-top: 20px; display: inline-block;"
+                >
+                    Bekijk onze Discord
+                </a>
 
-                <div class="closed-buttons">
+            </div>
 
-                    <a
-                        href="https://discord.gg/dekluis"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="button button-gold"
+
+            <div class="registration-grid" style="display: none;">
+
+
+                <!-- BEWAKER -->
+
+                <div class="registration-card">
+
+                    <h3>
+                        Bewaker
+                    </h3>
+
+                    <p>
+
+                        Denk jij dat je de criminelen kunt
+                        vinden voordat ze met hun buit
+                        ontsnappen?
+
+                        Meld je dan aan als bewaker.
+
+                    </p>
+
+
+                    <form
+                        class="ajax-form"
+                        action="https://formspree.io/f/xzeprwdk"
+                        method="POST"
                     >
-                        💬 Bekijk onze Discord
-                    </a>
 
-                    <a
-                        href="#home"
-                        class="button button-outline"
-                    >
-                        Terug naar home
-                    </a>
+                        <input
+                            type="hidden"
+                            name="rol"
+                            value="Bewaker"
+                        >
 
-                </div>
+                        <input
+                            type="hidden"
+                            name="subject"
+                            value="Nieuwe bewaker inschrijving - De Kluis FiveM"
+                        >
 
 
-                <div class="closed-note">
+                        <div class="form-grid">
 
-                    <strong>Tip:</strong>
+                            <div class="form-group">
 
-                    Zorg dat je bij onze Discord-server zit,
-                    zodat je als eerste weet wanneer de
-                    inschrijvingen weer openen.
+                                <label for="bewaker-naam">
+                                    FiveM-naam *
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="bewaker-naam"
+                                    name="FiveM-naam"
+                                    placeholder="Bijvoorbeeld: Shadow"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="bewaker-discord">
+                                    Discord-naam *
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="bewaker-discord"
+                                    name="Discord-naam"
+                                    placeholder="Bijvoorbeeld: shadow123"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="bewaker-email">
+                                    E-mailadres *
+                                </label>
+
+                                <input
+                                    type="email"
+                                    id="bewaker-email"
+                                    name="E-mailadres"
+                                    placeholder="jouw@email.nl"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="bewaker-leeftijd">
+                                    Leeftijd *
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="bewaker-leeftijd"
+                                    name="Leeftijd"
+                                    min="13"
+                                    max="99"
+                                    placeholder="18"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group full">
+
+                                <label for="bewaker-server">
+                                    Op welke server wil je deelnemen? *
+                                </label>
+
+                                <select
+                                    id="bewaker-server"
+                                    name="Gewenste server"
+                                    required
+                                >
+
+                                    <option value="">
+                                        Kies een server
+                                    </option>
+
+                                    <option>
+                                        Seizoen 01 - Server wordt binnenkort bekendgemaakt
+                                    </option>
+
+                                    <option>
+                                        Seizoen 02 - Nog niet bekend
+                                    </option>
+
+                                    <option>
+                                        Seizoen 03 - Nog niet bekend
+                                    </option>
+
+                                    <option>
+                                        Seizoen 04 - Nog niet bekend
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <div class="form-group full">
+
+                                <label for="bewaker-ervaring">
+                                    FiveM-ervaring
+                                </label>
+
+                                <select
+                                    id="bewaker-ervaring"
+                                    name="FiveM-ervaring"
+                                >
+
+                                    <option>Beginner</option>
+                                    <option>Gemiddeld</option>
+                                    <option>Ervaren</option>
+                                    <option>Zeer ervaren</option>
+
+                                </select>
+
+                            </div>
+
+
+                            <div class="form-group full">
+
+                                <label for="bewaker-motivatie">
+                                    Waarom wil je bewaker worden? *
+                                </label>
+
+                                <textarea
+                                    id="bewaker-motivatie"
+                                    name="Motivatie"
+                                    placeholder="Vertel ons waarom jij geschikt bent als bewaker..."
+                                    required
+                                ></textarea>
+
+                            </div>
+
+
+                            <div class="form-group full">
+
+                                <label for="bewaker-extra">
+                                    Extra informatie
+                                </label>
+
+                                <textarea
+                                    id="bewaker-extra"
+                                    name="Extra informatie"
+                                    placeholder="Heb je nog iets dat wij moeten weten?"
+                                ></textarea>
+
+                            </div>
+
+                        </div>
+
+
+                        <p class="form-info">
+
+                            Door het formulier te versturen geef je
+                            aan dat de ingevulde informatie correct is
+                            en dat je akkoord gaat met de spelregels
+                            van De Kluis.
+
+                        </p>
+
+
+                        <button
+                            type="submit"
+                            class="button button-gold submit-button"
+                        >
+                            Aanmelding versturen
+                        </button>
+
+
+                        <div class="success-message">
+                            ✓ Je aanmelding is succesvol verstuurd!
+                            We gaan je aanmelding bekijken. Je hoort
+                            via onze Discord-server of je bent aangenomen.
+                        </div>
+
+                    </form>
 
                 </div>
 
@@ -3671,7 +3544,7 @@
             <div class="section-header">
 
                 <div class="section-label">
-                    Word onderdeel van het team
+                    Werken bij De Kluis
                 </div>
 
                 <h2>
@@ -3679,838 +3552,352 @@
                 </h2>
 
                 <p>
+
                     Wil jij onderdeel worden van het team
-                    achter De Kluis? Solliciteer dan voor
-                    één van onze functies.
+                    achter De Kluis FiveM?
+
+                    Vul hieronder je sollicitatie in.
+                    Alle sollicitaties worden zorgvuldig
+                    bekeken.
+
                 </p>
 
             </div>
 
 
-            <div class="application-wrapper">
+            <div class="registration-grid">
 
 
-                <div class="application-info">
+                <div class="registration-card">
 
                     <h3>
-                        Werken bij De Kluis
+                        Word onderdeel van het team
                     </h3>
 
                     <p>
-                        We zijn altijd op zoek naar
-                        gemotiveerde mensen die willen
-                        helpen om De Kluis FiveM verder
-                        uit te bouwen.
-                    </p>
 
-                    <p>
-                        Kies in het formulier de functie
-                        waarvoor jij wilt solliciteren
-                        en vertel ons waarom jij geschikt
-                        bent voor deze functie.
+                        We zijn altijd op zoek naar gemotiveerde
+                        mensen die De Kluis willen helpen groeien.
+
+                        Kies hieronder de functie waarvoor je
+                        wilt solliciteren en beantwoord alle vragen.
+
                     </p>
 
 
-                    <div class="volunteer-box">
+                    <div class="volunteer-warning">
 
-                        <strong>
-                            ⚠ Belangrijk
-                        </strong>
+                        <strong>⚠ BELANGRIJK — VRIJWILLIG WERK</strong>
 
                         <br><br>
 
-                        Het werk bij De Kluis is in het begin
-                        <strong>vrijwillig en onbetaald</strong>.
+                        De functies binnen De Kluis zijn op dit
+                        moment <strong>vrijwillig en onbetaald</strong>.
+                        Je krijgt in het begin dus geen salaris
+                        voor je werkzaamheden.
 
-                        Je ontvangt dus geen salaris voor
-                        je werkzaamheden.
+                        <br><br>
 
-                        Dit kan in de toekomst veranderen,
-                        maar hier kunnen op dit moment geen
-                        garanties over worden gegeven.
-
-                    </div>
-
-
-                    <div class="application-roles">
-
-                        <div class="role-tag">
-                            Moderator
-                        </div>
-
-                        <div class="role-tag">
-                            Content Manager
-                        </div>
-
-                        <div class="role-tag">
-                            Partner Manager
-                        </div>
-
-                        <div class="role-tag">
-                            Developer
-                        </div>
-
-                        <div class="role-tag">
-                            Cameraman
-                        </div>
-
-                        <div class="role-tag">
-                            Presentator
-                        </div>
-
-                        <div class="role-tag">
-                            Editor
-                        </div>
-
-                        <div class="role-tag">
-                            Designer
-                        </div>
+                        We zoeken mensen die dit leuk vinden,
+                        gemotiveerd zijn en vrijwillig willen
+                        bijdragen aan het project.
 
                     </div>
 
-                </div>
 
+                    <form
+                        class="ajax-form"
+                        action="https://formspree.io/f/xzeprwdk"
+                        method="POST"
+                    >
 
-                <div class="application-card">
-
-                    <div id="application-form-wrapper">
-
-                        <h3>
-                            Sollicitatieformulier
-                        </h3>
-
-                        <p>
-                            Vul alle gegevens eerlijk in.
-                            Na het versturen wordt je
-                            sollicitatie door het team
-                            nagekeken.
-                        </p>
-
-
-                        <form
-                            id="application-form"
-                            action="JOUW_SOLLICITATIE_FORMSPREE_LINK"
-                            method="POST"
+                        <input
+                            type="hidden"
+                            name="type"
+                            value="Werknemerssollicitatie"
                         >
 
-                            <input
-                                type="hidden"
-                                name="subject"
-                                value="Nieuwe sollicitatie - De Kluis FiveM"
-                            >
+                        <input
+                            type="hidden"
+                            name="subject"
+                            value="Nieuwe werknemerssollicitatie - De Kluis FiveM"
+                        >
 
 
-                            <div class="form-grid">
+                        <div class="form-grid">
 
 
-                                <div class="form-group">
+                            <div class="form-group">
 
-                                    <label for="sollicitatie-naam">
-                                        Naam *
-                                    </label>
+                                <label for="werknemer-naam">
+                                    Naam *
+                                </label>
 
-                                    <input
-                                        type="text"
-                                        id="sollicitatie-naam"
-                                        name="Naam"
-                                        placeholder="Jouw naam"
-                                        required
-                                    >
-
-                                </div>
-
-
-                                <div class="form-group">
-
-                                    <label for="sollicitatie-leeftijd">
-                                        Leeftijd *
-                                    </label>
-
-                                    <input
-                                        type="number"
-                                        id="sollicitatie-leeftijd"
-                                        name="Leeftijd"
-                                        min="12"
-                                        max="99"
-                                        placeholder="18"
-                                        required
-                                    >
-
-                                </div>
-
-
-                                <div class="form-group full">
-
-                                    <label for="sollicitatie-functie">
-                                        Voor welke functie solliciteer je? *
-                                    </label>
-
-                                    <select
-                                        id="sollicitatie-functie"
-                                        name="Functie"
-                                        required
-                                    >
-
-                                        <option value="">
-                                            Kies een functie
-                                        </option>
-
-                                        <option value="Moderator">
-                                            Moderator
-                                        </option>
-
-                                        <option value="Content Manager">
-                                            Content Manager
-                                        </option>
-
-                                        <option value="Partner Manager">
-                                            Partner Manager
-                                        </option>
-
-                                        <option value="Developer">
-                                            Developer
-                                        </option>
-
-                                        <option value="Cameraman">
-                                            Cameraman
-                                        </option>
-
-                                        <option value="Presentator">
-                                            Presentator
-                                        </option>
-
-                                        <option value="Editor">
-                                            Editor
-                                        </option>
-
-                                        <option value="Designer">
-                                            Designer
-                                        </option>
-
-                                    </select>
-
-                                </div>
-
-
-                                <div class="form-group full">
-
-                                    <label for="sollicitatie-discord">
-                                        Discord-naam *
-                                    </label>
-
-                                    <input
-                                        type="text"
-                                        id="sollicitatie-discord"
-                                        name="Discord"
-                                        placeholder="Bijvoorbeeld: shadow123"
-                                        required
-                                    >
-
-                                </div>
-
-
-                                <div class="form-group full">
-
-                                    <label for="sollicitatie-motivatie">
-                                        Wat is je motivatie? *
-                                    </label>
-
-                                    <textarea
-                                        id="sollicitatie-motivatie"
-                                        name="Motivatie"
-                                        placeholder="Vertel ons waarom je bij De Kluis wilt werken..."
-                                        required
-                                    ></textarea>
-
-                                </div>
-
-
-                                <div class="form-group full">
-
-                                    <label for="sollicitatie-aannemen">
-                                        Hoezo zouden wij jou moeten aannemen? *
-                                    </label>
-
-                                    <textarea
-                                        id="sollicitatie-aannemen"
-                                        name="Waarom moeten wij jou aannemen"
-                                        placeholder="Vertel ons waarom jij geschikt bent voor deze functie..."
-                                        required
-                                    ></textarea>
-
-                                </div>
-
+                                <input
+                                    type="text"
+                                    id="werknemer-naam"
+                                    name="Naam"
+                                    placeholder="Jouw naam"
+                                    required
+                                >
 
                             </div>
 
 
-                            <p class="form-info">
+                            <div class="form-group">
 
-                                Door je sollicitatie te versturen
-                                bevestig je dat de ingevulde
-                                informatie correct is.
+                                <label for="werknemer-leeftijd">
+                                    Leeftijd *
+                                </label>
 
-                                <br><br>
+                                <input
+                                    type="number"
+                                    id="werknemer-leeftijd"
+                                    name="Leeftijd"
+                                    min="12"
+                                    max="99"
+                                    placeholder="18"
+                                    required
+                                >
 
-                                <strong>
-                                    Let op:
-                                </strong>
-
-                                Het werk is in het begin
-                                vrijwillig en onbetaald.
-
-                            </p>
-
-
-                            <button
-                                type="submit"
-                                class="button button-gold submit-button"
-                            >
-                                Sollicitatie versturen
-                            </button>
-
-                        </form>
-
-                    </div>
+                            </div>
 
 
-                    <div
-                        class="application-success"
-                        id="application-success"
-                    >
+                            <div class="form-group full">
 
-                        <div class="success-icon">
-                            ✅
+                                <label for="werknemer-discord">
+                                    Discord-naam *
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="werknemer-discord"
+                                    name="Discord"
+                                    placeholder="Bijvoorbeeld: shadow123"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group full">
+
+                                <label for="werknemer-functie">
+                                    Voor welke functie solliciteer je? *
+                                </label>
+
+                                <select
+                                    id="werknemer-functie"
+                                    name="Functie"
+                                    required
+                                >
+
+                                    <option value="">
+                                        Kies een functie
+                                    </option>
+
+                                    <option value="Moderator">
+                                        Moderator
+                                    </option>
+
+                                    <option value="Content manager">
+                                        Content Manager
+                                    </option>
+
+                                    <option value="Partner Manager">
+                                        Partner Manager
+                                    </option>
+
+                                    <option value="Developer">
+                                        Developer
+                                    </option>
+
+                                    <option value="Cameraman">
+                                        Cameraman
+                                    </option>
+
+                                    <option value="Presentator">
+                                        Presentator
+                                    </option>
+
+                                    <option value="Editor">
+                                        Editor
+                                    </option>
+
+                                    <option value="Designer">
+                                        Designer
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <div class="form-group full">
+
+                                <label for="werknemer-motivatie">
+                                    Wat is je motivatie? *
+                                </label>
+
+                                <textarea
+                                    id="werknemer-motivatie"
+                                    name="Motivatie"
+                                    placeholder="Vertel ons waarom je bij De Kluis wilt werken..."
+                                    required
+                                ></textarea>
+
+                            </div>
+
+
+                            <div class="form-group full">
+
+                                <label for="werknemer-aannemen">
+                                    Hoezo zouden wij jou moeten aannemen? *
+                                </label>
+
+                                <textarea
+                                    id="werknemer-aannemen"
+                                    name="Waarom moeten wij jou aannemen?"
+                                    placeholder="Vertel ons waarom jij geschikt bent voor deze functie..."
+                                    required
+                                ></textarea>
+
+                            </div>
+
+
                         </div>
 
-                        <h3>
-                            Sollicitatie succesvol verstuurd!
-                        </h3>
 
-                        <p>
-                            Bedankt voor je sollicitatie bij
-                            De Kluis FiveM.
+                        <p class="form-info">
 
-                            <br><br>
-
-                            Je sollicitatie is succesvol
-                            verstuurd en wordt door ons team
-                            nagekeken.
+                            Door je sollicitatie te versturen ga je
+                            ermee akkoord dat je gegevens worden gebruikt
+                            om je sollicitatie te beoordelen.
 
                             <br><br>
 
-                            Houd onze Discord-server in de
-                            gaten voor verdere informatie.
+                            <strong>
+                                Let op: de functies zijn momenteel
+                                vrijwillig en onbetaald.
+                            </strong>
+
                         </p>
 
-                        <br>
 
-                        <a
-                            href="https://discord.gg/dekluis"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="button button-outline"
+                        <button
+                            type="submit"
+                            class="button button-gold submit-button"
                         >
-                            Naar Discord
-                        </a>
+                            Sollicitatie versturen
+                        </button>
 
-                    </div>
+
+                        <div class="success-message">
+
+                            ✓ Je sollicitatie is succesvol verstuurd!
+
+                            <br>
+
+                            Bedankt voor je sollicitatie. We gaan deze
+                            bekijken en beoordelen. Je hoort via onze
+                            Discord-server of je bent aangenomen.
+
+                        </div>
+
+                    </form>
 
                 </div>
 
-            </div>
 
-        </div>
-
-    </section>
-
-
-    <!-- =========================================
-         PARTNERS
-    ========================================= -->
-
-    <section id="partners">
-
-        <div class="container">
-
-            <div class="partners-header">
-
-                <div class="section-label">
-                    Samenwerkingen
-                </div>
-
-                <h2>
-                    Onze partners
-                </h2>
-
-                <p>
-                    Hieronder vind je de partnerschappen
-                    van De Kluis FiveM. Nieuwe partners
-                    worden hier toegevoegd zodra deze
-                    officieel bekend zijn.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="partners-marquee">
-
-            <div class="partners-track">
-
-
-                <!-- SET 1 -->
-
-                <div class="partner-card">
-
-                    <img
-                        src="partnerschap 1.png"
-                        alt="Partnerschap 1"
-                        class="partner-logo"
-                    >
+                <div class="registration-card">
 
                     <h3>
-                        Later bekend
+                        Beschikbare functies
                     </h3>
 
-                    <div class="partner-status">
-                        Partnerschap 1
+                    <p>
+                        Hieronder zie je de functies waarvoor je
+                        momenteel kunt solliciteren.
+                    </p>
+
+
+                    <div class="cards" style="grid-template-columns: 1fr 1fr;">
+
+                        <div class="card">
+                            <div class="card-number">01</div>
+                            <h3>Moderator</h3>
+                            <p>
+                                Help mee met het beheren van de community
+                                en Discord.
+                            </p>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-number">02</div>
+                            <h3>Content Manager</h3>
+                            <p>
+                                Denk mee over content, ideeën en
+                                promotie voor De Kluis.
+                            </p>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-number">03</div>
+                            <h3>Partner Manager</h3>
+                            <p>
+                                Onderhoud contacten met partners en
+                                zoek nieuwe samenwerkingen.
+                            </p>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-number">04</div>
+                            <h3>Developer</h3>
+                            <p>
+                                Werk mee aan de technische kant van
+                                De Kluis en FiveM.
+                            </p>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-number">05</div>
+                            <h3>Cameraman</h3>
+                            <p>
+                                Leg de spannendste momenten van
+                                De Kluis vast.
+                            </p>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-number">06</div>
+                            <h3>Presentator</h3>
+                            <p>
+                                Presenteer spellen, opdrachten en
+                                belangrijke momenten.
+                            </p>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-number">07</div>
+                            <h3>Editor</h3>
+                            <p>
+                                Monteer beelden tot spannende video's
+                                voor de community.
+                            </p>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-number">08</div>
+                            <h3>Designer</h3>
+                            <p>
+                                Maak graphics, visuals en andere
+                                creatieve content.
+                            </p>
+                        </div>
+
                     </div>
 
-                    <a
-                        href="https://discord.gg/dekluis"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="partner-discord"
-                    >
-                        Discord
-                    </a>
-
                 </div>
-
-
-                <div class="partner-card">
-
-                    <img
-                        src="partnerschap 2.png"
-                        alt="Partnerschap 2"
-                        class="partner-logo"
-                    >
-
-                    <h3>
-                        Later bekend
-                    </h3>
-
-                    <div class="partner-status">
-                        Partnerschap 2
-                    </div>
-
-                    <a
-                        href="https://discord.gg/dekluis"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="partner-discord"
-                    >
-                        Discord
-                    </a>
-
-                </div>
-
-
-                <div class="partner-card">
-
-                    <img
-                        src="partnerschap 3.png"
-                        alt="Partnerschap 3"
-                        class="partner-logo"
-                    >
-
-                    <h3>
-                        Later bekend
-                    </h3>
-
-                    <div class="partner-status">
-                        Partnerschap 3
-                    </div>
-
-                    <a
-                        href="https://discord.gg/dekluis"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="partner-discord"
-                    >
-                        Discord
-                    </a>
-
-                </div>
-
-
-                <div class="partner-card">
-
-                    <img
-                        src="partnerschap 4.png"
-                        alt="Partnerschap 4"
-                        class="partner-logo"
-                    >
-
-                    <h3>
-                        Later bekend
-                    </h3>
-
-                    <div class="partner-status">
-                        Partnerschap 4
-                    </div>
-
-                    <a
-                        href="https://discord.gg/dekluis"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="partner-discord"
-                    >
-                        Discord
-                    </a>
-
-                </div>
-
-
-                <div class="partner-card">
-
-                    <img
-                        src="partnerschap 5.png"
-                        alt="Partnerschap 5"
-                        class="partner-logo"
-                    >
-
-                    <h3>
-                        Later bekend
-                    </h3>
-
-                    <div class="partner-status">
-                        Partnerschap 5
-                    </div>
-
-                    <a
-                        href="https://discord.gg/dekluis"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="partner-discord"
-                    >
-                        Discord
-                    </a>
-
-                </div>
-
-
-                <div class="partner-card">
-
-                    <img
-                        src="partnerschap 6.png"
-                        alt="Partnerschap 6"
-                        class="partner-logo"
-                    >
-
-                    <h3>
-                        Later bekend
-                    </h3>
-
-                    <div class="partner-status">
-                        Partnerschap 6
-                    </div>
-
-                    <a
-                        href="https://discord.gg/dekluis"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="partner-discord"
-                    >
-                        Discord
-                    </a>
-
-                </div>
-
-
-                <div class="partner-card">
-
-                    <img
-                        src="partnerschap 7.png"
-                        alt="Partnerschap 7"
-                        class="partner-logo"
-                    >
-
-                    <h3>
-                        Later bekend
-                    </h3>
-
-                    <div class="partner-status">
-                        Partnerschap 7
-                    </div>
-
-                    <a
-                        href="https://discord.gg/dekluis"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="partner-discord"
-                    >
-                        Discord
-                    </a>
-
-                </div>
-
-
-                <div class="partner-card">
-
-                    <img
-                        src="partnerschap 8.png"
-                        alt="Partnerschap 8"
-                        class="partner-logo"
-                    >
-
-                    <h3>
-                        Later bekend
-                    </h3>
-
-                    <div class="partner-status">
-                        Partnerschap 8
-                    </div>
-
-                    <a
-                        href="https://discord.gg/dekluis"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="partner-discord"
-                    >
-                        Discord
-                    </a>
-
-                </div>
-
-
-                <!-- SET 2 - VOOR DE ONEINDIGE ANIMATIE -->
-
-                <div class="partner-card">
-
-                    <img
-                        src="Partnerschap 1.png"
-                        alt="Partnerschap 1"
-                        class="partner-logo"
-                    >
-
-                    <h3>
-                        Later bekend
-                    </h3>
-
-                    <div class="partner-status">
-                        Partnerschap 1
-                    </div>
-
-                    <a
-                        href="https://discord.gg/dekluis"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="partner-discord"
-                    >
-                        Discord
-                    </a>
-
-                </div>
-
-
-                <div class="partner-card">
-
-                    <img
-                        src="Partnerschap 2.png"
-                        alt="Partnerschap 2"
-                        class="partner-logo"
-                    >
-
-                    <h3>
-                        Later bekend
-                    </h3>
-
-                    <div class="partner-status">
-                        Partnerschap 2
-                    </div>
-
-                    <a
-                        href="https://discord.gg/dekluis"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="partner-discord"
-                    >
-                        Discord
-                    </a>
-
-                </div>
-
-
-                <div class="partner-card">
-
-                    <img
-                        src="Partnerschap 3.png"
-                        alt="Partnerschap 3"
-                        class="partner-logo"
-                    >
-
-                    <h3>
-                        Later bekend
-                    </h3>
-
-                    <div class="partner-status">
-                        Partnerschap 3
-                    </div>
-
-                    <a
-                        href="https://discord.gg/dekluis"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="partner-discord"
-                    >
-                        Discord
-                    </a>
-
-                </div>
-
-
-                <div class="partner-card">
-
-                    <img
-                        src="Partnerschap 4.png"
-                        alt="Partnerschap 4"
-                        class="partner-logo"
-                    >
-
-                    <h3>
-                        Later bekend
-                    </h3>
-
-                    <div class="partner-status">
-                        Partnerschap 4
-                    </div>
-
-                    <a
-                        href="https://discord.gg/dekluis"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="partner-discord"
-                    >
-                        Discord
-                    </a>
-
-                </div>
-
-
-                <div class="partner-card">
-
-                    <img
-                        src="Partnerschap 5.png"
-                        alt="Partnerschap 5"
-                        class="partner-logo"
-                    >
-
-                    <h3>
-                        Later bekend
-                    </h3>
-
-                    <div class="partner-status">
-                        Partnerschap 5
-                    </div>
-
-                    <a
-                        href="https://discord.gg/dekluis"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="partner-discord"
-                    >
-                        Discord
-                    </a>
-
-                </div>
-
-
-                <div class="partner-card">
-
-                    <img
-                        src="Partnerschap 6.png"
-                        alt="Partnerschap 6"
-                        class="partner-logo"
-                    >
-
-                    <h3>
-                        Later bekend
-                    </h3>
-
-                    <div class="partner-status">
-                        Partnerschap 6
-                    </div>
-
-                    <a
-                        href="https://discord.gg/dekluis"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="partner-discord"
-                    >
-                        Discord
-                    </a>
-
-                </div>
-
-
-                <div class="partner-card">
-
-                    <img
-                        src="Partnerschap 7.png"
-                        alt="Partnerschap 7"
-                        class="partner-logo"
-                    >
-
-                    <h3>
-                        Later bekend
-                    </h3>
-
-                    <div class="partner-status">
-                        Partnerschap 7
-                    </div>
-
-                    <a
-                        href="https://discord.gg/dekluis"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="partner-discord"
-                    >
-                        Discord
-                    </a>
-
-                </div>
-
-
-                <div class="partner-card">
-
-                    <img
-                        src="Partnerschap 8.png"
-                        alt="Partnerschap 8"
-                        class="partner-logo"
-                    >
-
-                    <h3>
-                        Later bekend
-                    </h3>
-
-                    <div class="partner-status">
-                        Partnerschap 8
-                    </div>
-
-                    <a
-                        href="https://discord.gg/dekluis"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="partner-discord"
-                    >
-                        Discord
-                    </a>
-
-                </div>
-
 
             </div>
 
@@ -4538,8 +3925,10 @@
                 </h2>
 
                 <p>
+
                     Heb je een vraag over De Kluis?
                     Neem dan contact op met het team.
+
                 </p>
 
             </div>
@@ -4559,6 +3948,7 @@
                     </h3>
 
                     <p>
+
                         Kom gezellig bij onze Discord
                         voor nieuws, updates en vragen.
 
@@ -4569,8 +3959,9 @@
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            Discord server
+                            Join onze Discord →
                         </a>
+
                     </p>
 
                 </div>
@@ -4587,15 +3978,15 @@
                     </h3>
 
                     <p>
+
                         Heb je een vraag?
 
                         <br><br>
 
-                        <a
-                            href="mailto:dekluis.fivem@outlook.com"
-                        >
+                        <a href="mailto:dekluis.fivem@outlook.com">
                             dekluis.fivem@outlook.com
                         </a>
+
                     </p>
 
                 </div>
@@ -4612,15 +4003,513 @@
                     </h3>
 
                     <p>
+
                         Speel mee met De Kluis
-                        op één van de FiveM-servers
-                        waar wij actief op zijn.
+                        op één van de FiveM-servers waar
+                        wij actief op zijn.
 
                         <br><br>
 
                         Serverinformatie wordt
                         per seizoen toegevoegd.
+
                     </p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         PARTNERSCHAPPEN
+    ========================================= -->
+
+    <section id="partners">
+
+        <div class="container">
+
+            <div class="partners-heading">
+
+                <span class="section-label">
+                    Samen sterker
+                </span>
+
+                <h2>
+                    Onze partners
+                </h2>
+
+                <p>
+
+                    De partners van De Kluis helpen mee aan
+                    de groei van het project. Nieuwe
+                    samenwerkingen worden hier toegevoegd
+                    zodra ze officieel bekend zijn.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="partner-slider">
+
+            <div class="partner-track">
+
+
+                <!-- SET 1 -->
+
+                <div class="partner-card">
+
+                    <img
+                        class="partner-logo"
+                        src="Partnerschap 1.png"
+                        alt="Partnerschap 1"
+                    >
+
+                    <h3>
+                        Partnerschap 1
+                    </h3>
+
+                    <div class="partner-status">
+                        Later bekend
+                    </div>
+
+                    <a
+                        href="https://discord.gg/dekluis"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="partner-discord"
+                    >
+                        Discord
+                    </a>
+
+                </div>
+
+
+                <div class="partner-card">
+
+                    <img
+                        class="partner-logo"
+                        src="Partnerschap 2.png"
+                        alt="Partnerschap 2"
+                    >
+
+                    <h3>
+                        Partnerschap 2
+                    </h3>
+
+                    <div class="partner-status">
+                        Later bekend
+                    </div>
+
+                    <a
+                        href="https://discord.gg/dekluis"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="partner-discord"
+                    >
+                        Discord
+                    </a>
+
+                </div>
+
+
+                <div class="partner-card">
+
+                    <img
+                        class="partner-logo"
+                        src="Partnerschap 3.png"
+                        alt="Partnerschap 3"
+                    >
+
+                    <h3>
+                        Partnerschap 3
+                    </h3>
+
+                    <div class="partner-status">
+                        Later bekend
+                    </div>
+
+                    <a
+                        href="https://discord.gg/dekluis"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="partner-discord"
+                    >
+                        Discord
+                    </a>
+
+                </div>
+
+
+                <div class="partner-card">
+
+                    <img
+                        class="partner-logo"
+                        src="Partnerschap 4.png"
+                        alt="Partnerschap 4"
+                    >
+
+                    <h3>
+                        Partnerschap 4
+                    </h3>
+
+                    <div class="partner-status">
+                        Later bekend
+                    </div>
+
+                    <a
+                        href="https://discord.gg/dekluis"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="partner-discord"
+                    >
+                        Discord
+                    </a>
+
+                </div>
+
+
+                <div class="partner-card">
+
+                    <img
+                        class="partner-logo"
+                        src="Partnerschap 5.png"
+                        alt="Partnerschap 5"
+                    >
+
+                    <h3>
+                        Partnerschap 5
+                    </h3>
+
+                    <div class="partner-status">
+                        Later bekend
+                    </div>
+
+                    <a
+                        href="https://discord.gg/dekluis"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="partner-discord"
+                    >
+                        Discord
+                    </a>
+
+                </div>
+
+
+                <div class="partner-card">
+
+                    <img
+                        class="partner-logo"
+                        src="Partnerschap 6.png"
+                        alt="Partnerschap 6"
+                    >
+
+                    <h3>
+                        Partnerschap 6
+                    </h3>
+
+                    <div class="partner-status">
+                        Later bekend
+                    </div>
+
+                    <a
+                        href="https://discord.gg/dekluis"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="partner-discord"
+                    >
+                        Discord
+                    </a>
+
+                </div>
+
+
+                <div class="partner-card">
+
+                    <img
+                        class="partner-logo"
+                        src="Partnerschap 7.png"
+                        alt="Partnerschap 7"
+                    >
+
+                    <h3>
+                        Partnerschap 7
+                    </h3>
+
+                    <div class="partner-status">
+                        Later bekend
+                    </div>
+
+                    <a
+                        href="https://discord.gg/dekluis"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="partner-discord"
+                    >
+                        Discord
+                    </a>
+
+                </div>
+
+
+                <div class="partner-card">
+
+                    <img
+                        class="partner-logo"
+                        src="Partnerschap 8.png"
+                        alt="Partnerschap 8"
+                    >
+
+                    <h3>
+                        Partnerschap 8
+                    </h3>
+
+                    <div class="partner-status">
+                        Later bekend
+                    </div>
+
+                    <a
+                        href="https://discord.gg/dekluis"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="partner-discord"
+                    >
+                        Discord
+                    </a>
+
+                </div>
+
+
+                <!-- SET 2 VOOR NAADLOZE LOOP -->
+
+                <div class="partner-card">
+
+                    <img
+                        class="partner-logo"
+                        src="Partnerschap 1.png"
+                        alt="Partnerschap 1"
+                    >
+
+                    <h3>
+                        Partnerschap 1
+                    </h3>
+
+                    <div class="partner-status">
+                        Later bekend
+                    </div>
+
+                    <a
+                        href="https://discord.gg/dekluis"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="partner-discord"
+                    >
+                        Discord
+                    </a>
+
+                </div>
+
+
+                <div class="partner-card">
+
+                    <img
+                        class="partner-logo"
+                        src="Partnerschap 2.png"
+                        alt="Partnerschap 2"
+                    >
+
+                    <h3>
+                        Partnerschap 2
+                    </h3>
+
+                    <div class="partner-status">
+                        Later bekend
+                    </div>
+
+                    <a
+                        href="https://discord.gg/dekluis"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="partner-discord"
+                    >
+                        Discord
+                    </a>
+
+                </div>
+
+
+                <div class="partner-card">
+
+                    <img
+                        class="partner-logo"
+                        src="Partnerschap 3.png"
+                        alt="Partnerschap 3"
+                    >
+
+                    <h3>
+                        Partnerschap 3
+                    </h3>
+
+                    <div class="partner-status">
+                        Later bekend
+                    </div>
+
+                    <a
+                        href="https://discord.gg/dekluis"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="partner-discord"
+                    >
+                        Discord
+                    </a>
+
+                </div>
+
+
+                <div class="partner-card">
+
+                    <img
+                        class="partner-logo"
+                        src="Partnerschap 4.png"
+                        alt="Partnerschap 4"
+                    >
+
+                    <h3>
+                        Partnerschap 4
+                    </h3>
+
+                    <div class="partner-status">
+                        Later bekend
+                    </div>
+
+                    <a
+                        href="https://discord.gg/dekluis"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="partner-discord"
+                    >
+                        Discord
+                    </a>
+
+                </div>
+
+
+                <div class="partner-card">
+
+                    <img
+                        class="partner-logo"
+                        src="Partnerschap 5.png"
+                        alt="Partnerschap 5"
+                    >
+
+                    <h3>
+                        Partnerschap 5
+                    </h3>
+
+                    <div class="partner-status">
+                        Later bekend
+                    </div>
+
+                    <a
+                        href="https://discord.gg/dekluis"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="partner-discord"
+                    >
+                        Discord
+                    </a>
+
+                </div>
+
+
+                <div class="partner-card">
+
+                    <img
+                        class="partner-logo"
+                        src="Partnerschap 6.png"
+                        alt="Partnerschap 6"
+                    >
+
+                    <h3>
+                        Partnerschap 6
+                    </h3>
+
+                    <div class="partner-status">
+                        Later bekend
+                    </div>
+
+                    <a
+                        href="https://discord.gg/dekluis"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="partner-discord"
+                    >
+                        Discord
+                    </a>
+
+                </div>
+
+
+                <div class="partner-card">
+
+                    <img
+                        class="partner-logo"
+                        src="Partnerschap 7.png"
+                        alt="Partnerschap 7"
+                    >
+
+                    <h3>
+                        Partnerschap 7
+                    </h3>
+
+                    <div class="partner-status">
+                        Later bekend
+                    </div>
+
+                    <a
+                        href="https://discord.gg/dekluis"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="partner-discord"
+                    >
+                        Discord
+                    </a>
+
+                </div>
+
+
+                <div class="partner-card">
+
+                    <img
+                        class="partner-logo"
+                        src="Partnerschap 8.png"
+                        alt="Partnerschap 8"
+                    >
+
+                    <h3>
+                        Partnerschap 8
+                    </h3>
+
+                    <div class="partner-status">
+                        Later bekend
+                    </div>
+
+                    <a
+                        href="https://discord.gg/dekluis"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="partner-discord"
+                    >
+                        Discord
+                    </a>
 
                 </div>
 
@@ -4650,10 +4539,12 @@
                     </h3>
 
                     <p>
+
                         De Kluis FiveM is een spannende
                         spelshow waarin strategie,
                         samenwerking, risico en buit
                         centraal staan.
+
                     </p>
 
                 </div>
@@ -4703,15 +4594,15 @@
                     </h3>
 
                     <a href="#inschrijven">
-                        Inschrijvingen
+                        Inschrijven als crimineel
+                    </a>
+
+                    <a href="#inschrijven">
+                        Inschrijven als bewaker
                     </a>
 
                     <a href="#solliciteren">
                         Solliciteren
-                    </a>
-
-                    <a href="#contact">
-                        Contact
                     </a>
 
                     <a
@@ -4720,6 +4611,10 @@
                         rel="noopener noreferrer"
                     >
                         Discord
+                    </a>
+
+                    <a href="#contact">
+                        Contact
                     </a>
 
                 </div>
@@ -4752,7 +4647,7 @@
                     </p>
 
                     <p>
-                        Werken = vrijwillig
+                        Teamfuncties zijn vrijwillig
                     </p>
 
                 </div>
@@ -4779,199 +4674,108 @@
 
 
     <!-- =========================================
-         JAVASCRIPT
+         FORMULIER SCRIPT
     ========================================= -->
 
     <script>
 
-        /*
-         * =========================================
-         * SOLLICITATIE FORMULIER
-         * =========================================
-         */
+        document.addEventListener("DOMContentLoaded", function () {
 
-        const applicationForm =
-            document.getElementById("application-form");
+            const forms = document.querySelectorAll(".ajax-form");
 
-        const applicationFormWrapper =
-            document.getElementById(
-                "application-form-wrapper"
-            );
+            forms.forEach(function (form) {
 
-        const applicationSuccess =
-            document.getElementById(
-                "application-success"
-            );
-
-
-        if (applicationForm) {
-
-            applicationForm.addEventListener(
-                "submit",
-                async function(event) {
+                form.addEventListener("submit", async function (event) {
 
                     event.preventDefault();
 
-                    const submitButton =
-                        applicationForm.querySelector(
-                            "button[type='submit']"
-                        );
+                    const button =
+                        form.querySelector(".submit-button");
+
+                    const successMessage =
+                        form.querySelector(".success-message");
 
                     const originalText =
-                        submitButton.textContent;
+                        button.textContent;
 
-                    submitButton.disabled = true;
+                    button.disabled = true;
 
-                    submitButton.textContent =
-                        "Bezig met versturen...";
+                    button.style.opacity = "0.7";
+
+                    button.textContent =
+                        "Versturen...";
 
 
                     try {
 
-                        const formData =
-                            new FormData(
-                                applicationForm
-                            );
+                        const response = await fetch(
+                            form.action,
+                            {
+                                method: "POST",
 
-                        const response =
-                            await fetch(
-                                applicationForm.action,
-                                {
-                                    method: "POST",
-                                    body: formData,
-                                    headers: {
-                                        "Accept":
-                                            "application/json"
-                                    }
+                                body: new FormData(form),
+
+                                headers: {
+                                    "Accept": "application/json"
                                 }
-                            );
+                            }
+                        );
 
 
                         if (response.ok) {
 
-                            applicationFormWrapper.style.display =
-                                "none";
+                            form.reset();
 
-                            applicationSuccess.classList.add(
-                                "show"
-                            );
+                            successMessage.classList.add("show");
 
-                            applicationSuccess.scrollIntoView({
-                                behavior: "smooth",
-                                block: "center"
-                            });
+                            button.textContent =
+                                "Succesvol verstuurd ✓";
+
+                            button.style.opacity = "1";
+
+                            setTimeout(function () {
+
+                                button.disabled = false;
+
+                                button.textContent =
+                                    originalText;
+
+                                successMessage.classList.remove("show");
+
+                            }, 7000);
 
                         } else {
 
-                            alert(
-                                "Er ging iets mis bij het versturen van je sollicitatie. Probeer het opnieuw."
+                            throw new Error(
+                                "Formulier kon niet worden verstuurd."
                             );
-
-                            submitButton.disabled = false;
-
-                            submitButton.textContent =
-                                originalText;
 
                         }
 
                     } catch (error) {
 
                         alert(
-                            "Er ging iets mis bij het versturen. Controleer je internetverbinding en probeer het opnieuw."
+                            "Er ging iets mis met het versturen. " +
+                            "Probeer het opnieuw of neem contact met ons op via Discord."
                         );
 
-                        submitButton.disabled = false;
+                        button.disabled = false;
 
-                        submitButton.textContent =
+                        button.style.opacity = "1";
+
+                        button.textContent =
                             originalText;
 
                     }
 
-                }
-            );
-
-        }
-
-
-        /*
-         * =========================================
-         * EXTRA HOVER EFFECT VOOR KAARTEN
-         * =========================================
-         */
-
-        document
-            .querySelectorAll(
-                ".card, .employee-card, .server-card, .partner-card"
-            )
-            .forEach(function(card) {
-
-                card.addEventListener(
-                    "mousemove",
-                    function(event) {
-
-                        const rect =
-                            card.getBoundingClientRect();
-
-                        const x =
-                            event.clientX - rect.left;
-
-                        const y =
-                            event.clientY - rect.top;
-
-                        const rotateX =
-                            ((y / rect.height) - 0.5) * -3;
-
-                        const rotateY =
-                            ((x / rect.width) - 0.5) * 3;
-
-                        card.style.transform =
-                            `translateY(-6px)
-                             perspective(700px)
-                             rotateX(${rotateX}deg)
-                             rotateY(${rotateY}deg)`;
-
-                    }
-                );
-
-
-                card.addEventListener(
-                    "mouseleave",
-                    function() {
-
-                        card.style.transform = "";
-
-                    }
-                );
+                });
 
             });
 
-
-        /*
-         * =========================================
-         * JAAR FOOTER
-         * =========================================
-         */
-
-        const currentYear =
-            new Date().getFullYear();
-
-        const footerYear =
-            document.querySelector(
-                ".footer-bottom"
-            );
-
-        if (footerYear) {
-
-            footerYear.innerHTML =
-                `© ${currentYear}
-                <strong>De Kluis FiveM</strong>
-                — Alle rechten voorbehouden.`;
-
-        }
+        });
 
     </script>
 
 
 </body>
-
 </html>
